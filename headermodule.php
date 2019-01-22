@@ -7,9 +7,9 @@
     </div>
     <div id="menu">
         <b><a href="index.php" class="button">Dashboard</a> | 
-            <a href="top10heat.php" class="button">Top 10 Heat</a> | 
+            <a href="toptenheat.php" class="button">Top 10 Heat</a> | 
             <a href="rainfall.php" class="button">Rainfall Map</a> |
-            <a href="Heatindex.php" class="button">Heatindex</a>
+            <a href="heatindexgraph.php" class="button">Heatindex</a>
         </b>
     </div>
 </head>

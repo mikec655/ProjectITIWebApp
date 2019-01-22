@@ -2,7 +2,7 @@
     <head>
         <title>Rainfall Map - Hero Cycles Weather Application</title>
         <?php
-        require("Header.php")
+        require("headermodule.php")
         ?>
     </head>
     <body>  
@@ -18,14 +18,14 @@
             </div></div>
         <div id="center_content"><center>
                 <h1>Rainfall Map</h1>
-                <iframe src="rainfallmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </center>
         </div>
         <div id="right_sidebar"></div>
     </body>
     <div id="footer">
     <?php
-    require("Footer.php")
+    require("footermodule.php")
     ?>
 </div>
 </html>

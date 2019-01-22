@@ -2,7 +2,7 @@
     <head>
         <title>Dashboard - Hero Cycles Weather Application</title>
         <?php
-        require("Header.php")
+        require("headermodule.php")
         ?>
     </head>
     <body>
@@ -29,7 +29,7 @@
         
         <div id="footer">
     <?php
-    require("Footer.php")
+    require("footermodule.php")
     ?>
 </div>
     </body>

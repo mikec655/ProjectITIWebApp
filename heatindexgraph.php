@@ -2,7 +2,7 @@
     <head>
         <title>Top 10 Heat Index - Hero Cycles Weather Application</title>
         <?php
-        require("Header.php")
+        require("headermodule.php")
         ?>
 </head>
 
@@ -40,7 +40,7 @@
 
 <div id="footer">
     <?php
-    require("Footer.php")
+    require("footermodule.php")
     ?>
 </div>
 </body>

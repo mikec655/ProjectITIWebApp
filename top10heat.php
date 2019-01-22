@@ -22,13 +22,17 @@
             <table>
                 <tr><th></th><th>Weather Station</th><th>Country</th><th>Temperature</th></tr>
             <?php
-                // include("dataReader.php");
-                // $data = readData("2019-01-21", 10300, "110000000000");
-                // rsort($data['temp']);
-                // print_r($data['temp']);
-                // for ($i = 0; $i < 10; $i++){
-                //     echo "<tr><th></th><th>123456</th><th>Country</th><th>" . round($data["temp"][$i], 1) . "</th></tr>";
-                // }
+                include("dataReader.php");
+                $data = readDataOfCountry("2019-01-21", "INDIA", "110000000000");
+                $highest_temperatures = array();
+                foreach($data as $station){
+                    $highest_temperatures[$station[0]] = max($station[6]['temp']);
+                };
+                arsort($highest_temperatures);
+                $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
+                foreach($highest_temperatures as $key => $value){
+                    echo "<tr><th></th><th>" . $key . "</th><th>Country</th><th>" . round($value, 1) . "</th></tr>";
+                }
             ?>
             </table>
                 

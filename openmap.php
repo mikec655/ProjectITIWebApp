@@ -2370,13 +2370,7 @@
                                 map.getProjectionObject()
                                 );
                 markers.addMarker(new OpenLayers.Marker(newlonLat));
-				
-				document.write(value[0]);
 			}
-			
-            while (i < 10) {
-
-            }
         </script>
     </body>
 </html>

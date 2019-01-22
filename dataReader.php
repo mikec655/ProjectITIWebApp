@@ -1,6 +1,6 @@
 <?php
 
-function readDataOfStation($date, $station, $needed) {
+function readDataOfStation($date, $station, $needed, $frequency) {
 
     $filePath = "testdata/" . $date . "/" . $station . ".dat";
     if(!$fp = fopen ($filePath, 'rb')) return 0;
@@ -19,6 +19,12 @@ function readDataOfStation($date, $station, $needed) {
     while(true) {
         if(!$data = fread($fp, $length)) break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
+
+        // echo (($array["time"] % ($frequency * 1000)) != 0) . "\n";
+        // echo var_dump($array["time"]);
+        // if(($array["time"] % ($frequency * 1000)) != 0) break;
+        // echo "klote";
+
         $i = 0;
         foreach ($array as $key => $value){
             if (substr($needed, $i, 1) == '1'){
@@ -39,16 +45,23 @@ function readDataOfStation($date, $station, $needed) {
 // print_r(readData("2019-01-21", 72000, "110000000000"));
 // echo "</pre>";
 
-function readDataOfCountry($date, $country, $needed){
+function readDataOfCountry($date, $country, $needed, $frequency){
     if(!$fp = fopen ("testdata/stations.csv", 'r')) return 0;
     $stations = array();
+
+    $keys = array("stn", "name", "lat", "long", "elev", "data");
 
     $station = fgetcsv($fp);
     while(($station = fgetcsv($fp)) !== FALSE){
         if ($station[2] == $country) {
-            $data = readDataOfStation($date, $station[0], $needed);
-            array_push($station, $data);
-            array_push($stations, $station);
+            $data = readDataOfStation($date, $station[0], $needed, $frequency);
+            $namedData["stn"] = $station[0];
+            $namedData["name"] = $station[1];
+            $namedData["lat"] = $station[3];
+            $namedData["long"] = $station[4];
+            $namedData["elev"] = $station[5];
+            $namedData["data"] = $data;
+            array_push($stations, $namedData);
 
         }
     }
@@ -60,5 +73,5 @@ function readDataOfCountry($date, $country, $needed){
     return $stations;
 }
 
-readDataOfCountry("2019-01-21", "INDIA", "110000000000");
+//readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60);
 ?>

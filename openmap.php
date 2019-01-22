@@ -2354,7 +2354,11 @@
             var markers = new OpenLayers.Layer.Markers("Markers");
             map.addLayer(markers);
 
-            markers.addMarker(new OpenLayers.Marker(lonLat));
+            var size = new OpenLayers.Size(21,25);
+            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+            var icon = new OpenLayers.Icon('img/marker.png', size, offset);
+
+            markers.addMarker(new OpenLayers.Marker(lonLat, icon.clone()));
 
             map.setCenter(lonLat, zoom);
 			
@@ -2369,14 +2373,11 @@
                                 new OpenLayers.Projection("EPSG:4326"),
                                 map.getProjectionObject()
                                 );
-                markers.addMarker(new OpenLayers.Marker(newlonLat));
+                markers.addMarker(new OpenLayers.Marker(newlonLat,icon.clone()));
 				
 				document.write(value[0]);
 			}
 			
-            while (i < 10) {
-
-            }
         </script>
     </body>
 </html>

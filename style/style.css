@@ -51,15 +51,16 @@ padding-bottom: 6px;
 	float: left;
 }
 
-#footer {
-	top: 5%;
+.footer {
+        position:fixed;
+        left: 0;
+        bottom:0;
 	width: 100%;
 	height: 20px;
 	font-family: Calibri; 
-	clear: both;
 	text-align: center;
-	position: relative;
 	background-color: #001C49;
+        
 }
 
 table {
@@ -134,4 +135,85 @@ td {
     color: #f4dc42;
 }
 
+/*styling inlog en registratie formulier*/
+.loginstyling {
+    margin:10px auto;
+    max-width: 400px;
+    padding: 19px 13px 50px 190px;
+    font: 13px "Sans-Serif", "Sans-Serif", sans-serif;
+    background:white;
+    border:groove;
+}
 
+/*contact formulier styling*/
+/*algemene styling hele formulier*/
+.contactstyling {
+    margin:10px auto;
+    max-width: 500px;
+    padding: 60px 13px 9px 19px;
+    font: 13px "Sans-Serif", "Sans-Serif", sans-serif;
+}
+
+/*styling van de lists*/
+.contactstyling li {
+    padding: 0px;
+    display: block;
+    margin: 10px 0px 0px 0px;
+}
+/*styling van de labels*/
+.contactstyling label{
+    margin:0px 0px 4px 0px;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+
+/*styling van de borders bij de textboxes en dikte van de boxes*/
+.contactstyling input[type=text], 
+.contactstyling input[type=email],
+
+.loginstyling input[type=text],
+.loginstyling input[type=email],
+.loginstyling input[type=password],
+
+textarea, 
+select{
+    box-sizing: border-box;
+    border:1px solid #777f8c;
+    padding: 6px;
+    margin:0px;
+}
+/*styling van de borders (schaduw/glow toevoegen)*/
+.contactstyling input[type=text]:focus, 
+.contactstyling input[type=email]:focus,
+
+.loginstyling input[type=text]:focus, 
+.loginstyling input[type=email]:focus,
+.loginstyling input[type=password]:focus,
+
+.contactstyling textarea:focus, 
+.contactstyling select:focus{
+    box-shadow: 0px 0px 7px #7b97c4;
+    border: 1px solid #7b97c4;
+}
+
+/*styling van de buttons*/
+/*kleur submit button en dikte submit button*/
+.contactstyling input[type=submit], .contactstyling input[type=button]{
+    background: #4e96b7;
+    padding: 10px 15px 10px 15px;
+    color: #fff;
+    border: none;
+}
+/*kleur reset button en dikte reset button*/
+.contactstyling input[type=reset], .contactstyling input[type=button]{
+    background: #4e96b7;
+    padding: 10px 15px 10px 15px;
+    color: #fff;
+    border: none;
+}
+/*effect op button wanneer je er overheen hovered*/
+.contactstyling input[type=submit]:hover, .contactstyling input[type=button]:hover{
+    background: #4e96b7;
+    box-shadow:none;
+}

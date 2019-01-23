@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="mapdiv"></div>
-        <script src="https://www.openlayers.org/api/OpenLayers.js"></script>
+        <script src="/lib/OpenLayers.js"></script>
         <script>
             var stations = [['25105', 'DATSAV3 VIRT STATION (SINGAPORE)', 'SINGAPORE', '1.383', '103.717'],
                 ['170220', 'ZONGULDAK', 'TURKEY', '41.45', '31.8'],
@@ -2356,7 +2356,7 @@
 
             var size = new OpenLayers.Size(21,25);
             var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-            var icon = new OpenLayers.Icon('img/marker.png', size, offset);
+            var icon = new OpenLayers.Icon('/img/marker.png', size, offset);
 
             markers.addMarker(new OpenLayers.Marker(lonLat, icon.clone()));
 

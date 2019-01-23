@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="mapdiv"></div>
-        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+        <script src="/lib/OpenLayers.js"></script>
         <script>
             var stations = [['25105', 'DATSAV3 VIRT STATION (SINGAPORE)', 'SINGAPORE', '1.383', '103.717'],
                 ['170220', 'ZONGULDAK', 'TURKEY', '41.45', '31.8'],
@@ -2367,7 +2367,7 @@
 
             function init(){
                 map = new OpenLayers.Map('mapdiv');
-                mappingLayer = new OpenLayers.Layer.OSM("Simple OSM Map");
+
 
                 map.addLayer(mappingLayer);
                 vectorLayer = new OpenLayers.Layer.Vector("Vector Layer", {projection: "EPSG:4326"}); 
@@ -2390,7 +2390,7 @@
                 var lonLat = new OpenLayers.Geometry.Point( lon, lat);
                 lonLat.transform("EPSG:4326", map.getProjectionObject());
                 var feature = new OpenLayers.Feature.Vector(lonLat, {stn: value[0], name: value[1]}, style);
-                vectorLayer.addFeatures(feature);
+                vectorLayer.addFeatures(feature); 
             }
 
             init();

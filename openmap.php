@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="mapdiv"></div>
-        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+        <script src="https://www.openlayers.org/api/OpenLayers.js"></script>
         <script>
             var stations = [['25105', 'DATSAV3 VIRT STATION (SINGAPORE)', 'SINGAPORE', '1.383', '103.717'],
                 ['170220', 'ZONGULDAK', 'TURKEY', '41.45', '31.8'],

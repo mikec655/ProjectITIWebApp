@@ -2358,8 +2358,6 @@
             var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
             var icon = new OpenLayers.Icon('/img/marker.png', size, offset);
 
-            markers.addMarker(new OpenLayers.Marker(lonLat, icon.clone()));
-
             map.setCenter(lonLat, zoom);
 
             stations.forEach(createMarker);
@@ -2373,7 +2371,7 @@
                                 new OpenLayers.Projection("EPSG:4326"),
                                 map.getProjectionObject()
                                 );
-                markers.addMarker(new OpenLayers.Marker(newlonLat));
+                markers.addMarker(new OpenLayers.Marker(newlonLat, icon.clone()));
             }
 
         </script>

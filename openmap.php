@@ -2340,42 +2340,62 @@
                 ['988360', 'ZAMBOANGA', 'PHILIPPINES', '6.9', '122.067'],
                 ['988510', 'GEN. SANTOS', 'PHILIPPINES', '6.117', '125.183']];
 
-            map = new OpenLayers.Map("mapdiv");
-            map.addLayer(new OpenLayers.Layer.OSM());
+            var map, mappingLayer, vectorLayer, selectMarkerControl, selectedFeature;
 
-            var lonLat = new OpenLayers.LonLat(77.216721, 28.644800)
-                    .transform(
-                            new OpenLayers.Projection("EPSG:4326"),
-                            map.getProjectionObject()
-                            );
+            var style =  {
+                externalGraphic: 'img/marker.png',
+                graphicWidth: 21,
+                graphicHeight: 25,
+                graphicYOffset: -24
+            };
 
-            var zoom = 5;
-
-            var markers = new OpenLayers.Layer.Markers("Markers");
-            map.addLayer(markers);
-
-            var size = new OpenLayers.Size(21,25);
-            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-            var icon = new OpenLayers.Icon('img/marker.png', size, offset);
-
-            markers.addMarker(new OpenLayers.Marker(lonLat, icon.clone()));
-
-            map.setCenter(lonLat, zoom);
-
-            stations.forEach(createMarker);
-
-            function createMarker(value) {
-                var lat = value[3];
-                var lon = value[4];
-
-                var newlonLat = new OpenLayers.LonLat(lon, lat)
-                        .transform(
-                                new OpenLayers.Projection("EPSG:4326"),
-                                map.getProjectionObject()
-                                );
-                markers.addMarker(new OpenLayers.Marker(newlonLat));
+            function onFeatureSelect(feature) {
+                selectedFeature = feature;
+                popup = new OpenLayers.Popup.FramedCloud("tempId", feature.geometry.getBounds().getCenterLonLat(),
+                                        null,
+                                        selectedFeature.attributes.stn + ": " + selectedFeature.attributes.name,
+                                        null, true);
+                feature.popup = popup;
+                map.addPopup(popup);
             }
 
+            function onFeatureUnselect(feature) {
+                map.removePopup(feature.popup);
+                feature.popup.destroy();
+                feature.popup = null;
+            }   
+
+            function init(){
+                map = new OpenLayers.Map('mapdiv');
+                mappingLayer = new OpenLayers.Layer.OSM("Simple OSM Map");
+
+                map.addLayer(mappingLayer);
+                vectorLayer = new OpenLayers.Layer.Vector("Vector Layer", {projection: "EPSG:4326"}); 
+                selectMarkerControl = new OpenLayers.Control.SelectFeature(vectorLayer, {onSelect: onFeatureSelect, onUnselect: onFeatureUnselect});
+                map.addControl(selectMarkerControl);
+
+                selectMarkerControl.activate();
+                map.addLayer(vectorLayer);
+                map.setCenter(
+                    new OpenLayers.LonLat(0, 0).transform(
+                        new OpenLayers.Projection("EPSG:4326"),
+                        map.getProjectionObject())
+                    , 1
+                );    
+            }
+
+            function placeRandomMarker(value){
+                var lat = value[3];
+                var lon = value[4];
+                var lonLat = new OpenLayers.Geometry.Point( lon, lat);
+                lonLat.transform("EPSG:4326", map.getProjectionObject());
+                var feature = new OpenLayers.Feature.Vector(lonLat, {stn: value[0], name: value[1]}, style);
+                vectorLayer.addFeatures(feature);
+            }
+
+            init();
+            stations.forEach(placeRandomMarker);
+            
         </script>
     </body>
 </html>

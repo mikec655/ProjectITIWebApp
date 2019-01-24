@@ -19,7 +19,8 @@
             </div></div>
         <div id="center_content"><center>
                 <h1>Rainfall Map</h1>
-                <iframe src="inc/openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <?php include("inc/openmap.php"); ?>
+                <!-- <iframe src="inc/openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
             </center>
         </div>
         <div id="right_sidebar"></div>

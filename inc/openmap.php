@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="mapdiv"></div>
-        <script src="../lib/OpenLayers.js"></script>
+        <script src="lib/OpenLayers.js"></script>
         <script>
             <?php
                 $countries = array(
@@ -73,7 +73,7 @@
             var map, mappingLayer, vectorLayer, selectMarkerControl, selectedFeature;
 
             var style =  {
-                externalGraphic: '../img/marker.png',
+                externalGraphic: 'img/marker.png',
                 graphicWidth: 21,
                 graphicHeight: 27,
                 graphicYOffset: -24

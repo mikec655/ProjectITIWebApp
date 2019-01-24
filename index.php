@@ -6,10 +6,26 @@
         ?>
     </head>
     <body>
+        <?php
+        session_start();
+
+        define('DS', TRUE); // used to protect includes
+        if (isset($_SESSION['username'])){
+            define('USERNAME', $_SESSION['username']);
+        } else {
+            define('USERNAME', "");
+        }
+        define('SELF', $_SERVER['PHP_SELF']);
+
+        if (!USERNAME or isset($_GET['logout']))
+            include('login.php');
+
+// everything below will show after correct login 
+        ?>
         <div id="left_sidebar"><br/>
             <div class='alert warning'>
-                <span class='alertclosebtn' onclick='this.parentElement.style.display=`none`;'>&times;</span>
-            
+                <span class='alertclosebtn' onclick='this.parentElement.style.display = `none`;'>&times;</span>
+
                 <div style='margin-bottom:15px;'>
                     <span class='alerticon'>
                         <img src='img/warning.png' width='36' height='36'></img>
@@ -26,11 +42,11 @@
             </center>
         </div>/
         <div id="right_sidebar"></div>
-        
+
         <div id="footer">
-    <?php
-    require("footermodule.php")
-    ?>
-</div>
+            <?php
+            require("footermodule.php")
+            ?>
+        </div>
     </body>
 </html>

@@ -1,32 +1,29 @@
-<html>
-    <head>
-    <?php
-        include "headermodule.php";
-    ?>
-    </head>
-    <body> 
-        <div class="filler"></div>
-            <div class="container">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off"><link rel="stylesheet" type="text/css" href="style/style.css">
-                        <ul class="loginstyling">    
-                            <img src="">
-                            <br>
-                            <p>Welcome to the weatherdata portal.<p>
-                            <input type="text" name="name" class="contactstyling" placeholder="Vul uw inlognaam in" value="" maxlength="40" />
-                            </br></br>
-                            <input type="password" name="pass" class="form-control" placeholder="Vul uw wachtwoord in" maxlength="15" />
-                            </br></br>
-                            <input type="submit" class= "btn btn-block btn-primary" name="btn-login" value="Inloggen"/>
-                        </ul>
-                    </form>     
-            </div>
-        
-        
-        <div id="footer">
-            <div class="container">
-                <?php
-                include 'footermodule.php';
-                ?>
-            </div>
-        </div>
-</html>
+<?php defined('DS') OR die('No direct access allowed.');
+
+$users = array(
+ "user" => "userpass"
+);
+
+if(isset($_GET['logout'])) {
+    $_SESSION['username'] = '';
+    header('Location:  ' . $_SERVER['PHP_SELF']);
+}
+
+if(isset($_POST['username'])) {
+    if($users[$_POST['username']] !== NULL && $users[$_POST['username']] == $_POST['password']) {
+  $_SESSION['username'] = $_POST['username'];
+  header('Location:  ' . $_SERVER['PHP_SELF']);
+    }else {
+        //invalid login
+  echo "<p>error logging in</p>";
+    }
+}
+
+echo '<form method="post" action="'.SELF.'">
+  <h2>Login</h2>
+  <p><label for="username">Username</label> <input type="text" id="username" name="username" value="" /></p>
+  <p><label for="password">Password</label> <input type="password" id="password" name="password" value="" /></p>
+  <p><input type="submit" name="submit" value="Login" class="button"/></p>
+  </form>';
+exit; 
+?>

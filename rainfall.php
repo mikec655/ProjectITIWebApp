@@ -2,22 +2,11 @@
     <head>
         <title>Rainfall Map - Hero Cycles Weather Application</title>
         <?php
-        require("headermodule.php")
+        require("inc/headermodule.php");
+        require("inc/loginrequire.php");
         ?>
     </head>
     <body> 
-        <?php
-        session_start();
-
-        define('DS', TRUE); // used to protect includes
-        define('USERNAME', $_SESSION['username']);
-        define('SELF', $_SERVER['PHP_SELF']);
-
-        if (!USERNAME or isset($_GET['logout']))
-            include('login.php');
-
-// everything below will show after correct login 
-        ?>
         <div id="left_sidebar"><br/>
             <div class='alert warning'>
                 <span class='alertclosebtn' onclick='this.parentElement.style.display = `none`;'>&times;</span>
@@ -30,14 +19,14 @@
             </div></div>
         <div id="center_content"><center>
                 <h1>Rainfall Map</h1>
-                <iframe src="openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="inc/openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </center>
         </div>
         <div id="right_sidebar"></div>
     </body>
     <div id="footer">
         <?php
-        require("footermodule.php")
+        require("inc/footermodule.php")
         ?>
     </div>
 </html>

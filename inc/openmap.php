@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="mapdiv"></div>
-        <script src="lib/OpenLayers.js"></script>
+        <script src="../lib/OpenLayers.js"></script>
         <script>
             var stations = [['25105', 'DATSAV3 VIRT STATION (SINGAPORE)', 'SINGAPORE', '1.383', '103.717'],
                 ['170220', 'ZONGULDAK', 'TURKEY', '41.45', '31.8'],
@@ -2343,7 +2343,7 @@
             var map, mappingLayer, vectorLayer, selectMarkerControl, selectedFeature;
 
             var style =  {
-                externalGraphic: 'img/marker.png',
+                externalGraphic: '../img/marker.png',
                 graphicWidth: 21,
                 graphicHeight: 27,
                 graphicYOffset: -24

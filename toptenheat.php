@@ -2,21 +2,10 @@
     <head>
         <title>Top 10 Heat Index - Hero Cycles Weather Application</title>
         <?php
-        require("headermodule.php")
+        require("inc/headermodule.php");
+        require("inc/loginrequire.php");
         ?>
     </head>
-    <?php
-    session_start();
-
-    define('DS', TRUE); // used to protect includes
-    define('USERNAME', $_SESSION['username']);
-    define('SELF', $_SERVER['PHP_SELF']);
-
-    if (!USERNAME or isset($_GET['logout']))
-        include('login.php');
-
-// everything below will show after correct login 
-    ?>
     <div id="left_sidebar"><br/>
         <div class='alert warning'>
             <span class='alertclosebtn' onclick='this.parentElement.style.display = `none`;'>&times;</span>
@@ -33,7 +22,7 @@
                 <table>
                     <tr><th></th><th>Weather Station</th><th>Country</th><th>Name</th><th>Temperature</th></tr>
                     <?php
-                    include("dataReader.php");
+                    include("inc/dataReader.php");
                     $countries = array(
                         "AFGHANISTAN",
                         "ARMENIA",
@@ -109,7 +98,7 @@
 
     <div id="footer">
         <?php
-        require("footermodule.php")
+        require("inc/footermodule.php")
         ?>
     </div>
 </body>

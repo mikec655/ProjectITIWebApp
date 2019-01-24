@@ -2,26 +2,12 @@
     <head>
         <title>Dashboard - Hero Cycles Weather Application</title>
         <?php
-        require("headermodule.php")
+        require("inc/headermodule.php");
+        require("inc/loginrequire.php");
         ?>
     </head>
     <body>
-        <?php
-        session_start();
 
-        define('DS', TRUE); // used to protect includes
-        if (isset($_SESSION['username'])){
-            define('USERNAME', $_SESSION['username']);
-        } else {
-            define('USERNAME', "");
-        }
-        define('SELF', $_SERVER['PHP_SELF']);
-
-        if (!USERNAME or isset($_GET['logout']))
-            include('login.php');
-
-// everything below will show after correct login 
-        ?>
         <div id="left_sidebar"><br/>
             <div class='alert warning'>
                 <span class='alertclosebtn' onclick='this.parentElement.style.display = `none`;'>&times;</span>
@@ -45,7 +31,7 @@
 
         <div id="footer">
             <?php
-            require("footermodule.php")
+            require("inc/footermodule.php")
             ?>
         </div>
     </body>

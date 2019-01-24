@@ -1,10 +1,8 @@
 <?php
 
 defined('DS') OR die('No direct access allowed.');
-$usernamelogin = user;
-$password = userpass;
 $users = array(
-    $usernamelogin => $password
+    "user" => "userpass"
 );
 
 if (isset($_GET['logout'])) {

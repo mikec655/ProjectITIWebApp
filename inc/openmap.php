@@ -58,7 +58,7 @@
                 include("dataReader.php");
                 echo "var stations = [";
                 foreach($countries as $country){
-                    $stations = readDataOfCountry("2019-01-21", $country, "000000010000", 0, TRUE);
+                    $stations = readDataOfCountry("2019-01-21", $country, "000000010000", 1, TRUE);
                     foreach($stations as $station){
                         if ($station['data']['prcp'][0] >= 1){
                             echo "[" . $station['stn'] . ", '" . $station['name'] . "', '" . $country . "', " . $station['lat'] . "," . $station['long'] . "," . $station['data']['prcp'][0] . "],";
@@ -84,7 +84,8 @@
                 popup = new OpenLayers.Popup.FramedCloud("tempId", feature.geometry.getBounds().getCenterLonLat(),
                                         null,
                                         selectedFeature.attributes.stn + ": " + selectedFeature.attributes.name + 
-                                        ", Rainfall: " + Math.round(selectedFeature.attributes.rainfall, 2) + "mm" ,
+                                        ", Rainfall: " + Math.round(selectedFeature.attributes.rainfall, 2) + "mm " +
+                                        "<a href='history.php'>More info</a>",
                                         null, true);
                 feature.popup = popup;
                 map.addPopup(popup);

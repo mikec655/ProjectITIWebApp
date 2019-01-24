@@ -24,10 +24,7 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
         if(!$data = fread($fp, $length)) break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
 
-        // echo (($array["time"] % ($frequency * 1000)) != 0) . "\n";
-        // echo var_dump($array["time"]);
-        // if(($array["time"] % ($frequency * 1000)) != 0) break;
-        // echo "klote";
+        if($array["time"] % ($frequency * 1000) != 0) continue;
 
         $i = 0;
         foreach ($array as $key => $value){
@@ -44,6 +41,11 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
 
     return $result;
 }
+
+// $data = readDataOfStation("2019-01-21", 10010, "100000010000", 60, FALSE);
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
 
 function readDataOfCountry($date, $country, $needed, $frequency, $last){
     if(!$fp = fopen ("testdata/stations.csv", 'r')) return 0;

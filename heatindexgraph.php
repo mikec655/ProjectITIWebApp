@@ -41,6 +41,9 @@
     <div id="right_sidebar"></div>
 
     <div id="footer">
+        <center>
+            <button></i> Download data to XML</button>
+        </center>
         <?php
         require("inc/footermodule.php")
         ?>

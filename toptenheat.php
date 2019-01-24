@@ -75,19 +75,19 @@
                         "VIETNAM",
                         "YEMEN"
                     );
-                    $highest_temperatures = array();
-                    foreach ($countries as $country) {
-                        $data = readDataOfCountry("2019-01-21", $country, "110000000000", 60);
-                        foreach ($data as $station) {
-                            $highest_temperatures[$station['stn']] = array(max($station['data']['temp']), $country, $station['name']);
-                            //print_r($station['data']['temp']);
-                        }
-                    }
-                    arsort($highest_temperatures);
-                    $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
-                    foreach ($highest_temperatures as $key => $value) {
-                        echo "<tr><th></th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "</th></tr>";
-                    }
+//                    $highest_temperatures = array();
+//                    foreach ($countries as $country) {
+//                        $data = readDataOfCountry("2019-01-21", $country, "110000000000", 60);
+//                        foreach ($data as $station) {
+//                            $highest_temperatures[$station['stn']] = array(max($station['data']['temp']), $country, $station['name']);
+//                            //print_r($station['data']['temp']);
+//                        }
+//                    }
+//                    arsort($highest_temperatures);
+//                    $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
+//                    foreach ($highest_temperatures as $key => $value) {
+//                        echo "<tr><th></th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "</th></tr>";
+//                    }
                     ?>
                 </table>
 
@@ -95,8 +95,10 @@
 
         </center></div>
     <div id="right_sidebar"></div>
-
     <div id="footer">
+        <center>
+            <button></i> Download data to XML</button>
+        </center>
         <?php
         require("inc/footermodule.php")
         ?>

@@ -1,8 +1,8 @@
 <?php
 
-function readDataOfStation($date, $station, $needed, $frequency) {
-
-    $filePath = "testdata/" . $date . "/" . $station . ".dat";
+function readDataOfStation($date, $station, $needed, $frequency, $last) {
+    
+    $filePath = "../testdata/" . $date . "/" . $station . ".dat";
     if(!$fp = fopen ($filePath, 'rb')) return 0;
 
     $result = array();
@@ -17,6 +17,10 @@ function readDataOfStation($date, $station, $needed, $frequency) {
     
     $length = 43;
     while(true) {
+        if($last){
+            $fz = filesize ($filePath);
+            $data = fread($fp, $fz - 43);
+        } 
         if(!$data = fread($fp, $length)) break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
 
@@ -41,12 +45,8 @@ function readDataOfStation($date, $station, $needed, $frequency) {
     return $result;
 }
 
-// echo "<pre>";
-// print_r(readData("2019-01-21", 72000, "110000000000"));
-// echo "</pre>";
-
-function readDataOfCountry($date, $country, $needed, $frequency){
-    if(!$fp = fopen ("testdata/stations.csv", 'r')) return 0;
+function readDataOfCountry($date, $country, $needed, $frequency, $last){
+    if(!$fp = fopen ("../testdata/stations.csv", 'r')) return 0;
     $stations = array();
 
     $keys = array("stn", "name", "lat", "long", "elev", "data");
@@ -54,7 +54,7 @@ function readDataOfCountry($date, $country, $needed, $frequency){
     $station = fgetcsv($fp);
     while(($station = fgetcsv($fp)) !== FALSE){
         if ($station[2] == $country) {
-            $data = readDataOfStation($date, $station[0], $needed, $frequency);
+            $data = readDataOfStation($date, $station[0], $needed, $frequency, $last);
             $namedData["stn"] = $station[0];
             $namedData["name"] = $station[1];
             $namedData["lat"] = $station[3];
@@ -73,5 +73,10 @@ function readDataOfCountry($date, $country, $needed, $frequency){
     return $stations;
 }
 
-//readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60);
+//readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
+
+// $data = readDataOfCountry("2019-01-21", "VIETNAM", "000000010000", 0, TRUE);
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
 ?>

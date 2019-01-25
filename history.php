@@ -39,8 +39,8 @@
                 $station = readDataOfStation($_GET['date'], $_GET['station'], "11000001000", 60, FALSE);
                 for($i = 0; $i < count($station['time']); $i++){
                     $time = $station['time'][$i];
-                    $temp = $station['temp'][$i];
-                    $prcp = $station['prcp'][$i];
+                    $temp = round($station['temp'][$i], 1);
+                    $prcp = round($station['prcp'][$i], 2);
                     echo "<tr><th>$time</th><td>$temp</td><td>$prcp</td></tr>";
                 }
             } else {

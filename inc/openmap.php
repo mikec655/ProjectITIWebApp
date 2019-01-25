@@ -85,7 +85,7 @@
                                         null,
                                         selectedFeature.attributes.stn + ": " + selectedFeature.attributes.name + 
                                         ", Rainfall: " + Math.round(selectedFeature.attributes.rainfall, 2) + "mm " +
-                                        "<a href='history.php'>More info</a>",
+                                        "<a href='history.php' class='blacklink'>More info</a>",
                                         null, true);
                 feature.popup = popup;
                 map.addPopup(popup);

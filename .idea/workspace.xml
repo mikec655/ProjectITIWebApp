@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/dataReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state relative-caret-position="578">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -35,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataGrafiek/Grafiek.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -54,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/toptenheat.php">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -87,6 +87,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -94,6 +95,7 @@
       <list>
         <option value="$PROJECT_DIR$/DataGrafiek/Grafiek.html" />
         <option value="$PROJECT_DIR$/DataGrafiek/test.html" />
+        <option value="$PROJECT_DIR$/inc/dataReader.php" />
         <option value="$PROJECT_DIR$/DataGrafiek/Grafiek.php" />
       </list>
     </option>
@@ -134,6 +136,27 @@
               <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="DataGrafiek" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -144,8 +167,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548443197219" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548445276760" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/git-bash.exe" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -248,12 +271,12 @@
       <updated>1548430477671</updated>
       <workItem from="1548430482486" duration="562000" />
       <workItem from="1548431069257" duration="2393000" />
-      <workItem from="1548435647567" duration="5486000" />
+      <workItem from="1548435647567" duration="7711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7888000" />
+    <option name="totallyTimeSpent" value="10113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,7 +397,7 @@
     <entry file="file://$PROJECT_DIR$/toptenheat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -394,15 +417,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/dataReader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        <state relative-caret-position="578">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataGrafiek/Grafiek.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

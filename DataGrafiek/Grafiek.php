@@ -5,12 +5,16 @@
 <body>
 <?php
 include_once("inc/dataReader.php");
+$testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
+
+
+foreach ($testCountry as $station){
+    print_r($station);
+    echo "<br/><br/>";
+}
+/*
 $station = readDataOfStation("2019-01-21",'100050' , "11000001000", 60, FALSE);
 
-/*foreach($station as $test){
-    print_r($test);
-    echo '<br/>';
-}*/
 for($i = 0; $i < count($station['time']); $i++){
     $time = $station['time'][$i];
     $temp = round($station['temp'][$i], 1);
@@ -25,9 +29,9 @@ for($i = 0; $i < count($station['time']); $i++){
         "Prcp: ".
         "<td>$prcp</td>" .
         "</tr><br/><br/>";
-}
+}*/
 ?>
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart"  width="200" height="200"></canvas>
 <script src="lib/Chart.bundle.min.js"></script>
 <script>
     var ctx = document.getElementById("myChart");
@@ -36,7 +40,7 @@ for($i = 0; $i < count($station['time']); $i++){
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
-                label: '# of Votes',
+                label: 'Weather data of India',
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

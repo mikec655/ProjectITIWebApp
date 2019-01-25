@@ -6,19 +6,9 @@
         require("inc/loginrequire.php");
         ?>
     </head>
-    <div id="left_sidebar"><br/>
-        <div class='alert warning'>
-            <span class='alertclosebtn' onclick='this.parentElement.style.display = `none`;'>&times;</span>
-            <div style='margin-bottom:15px;'>
-                <span class='alerticon'>
-                    <img src='img/warning.png' width='36' height='36'></img>
-                </span>
-                <font size='4'><b>&ensp;Information</b></font>
-            </div>
-            <font size='3'>This website is a schoolproject, that uses the name "Hero Cycles" as an example. The name and the logo are owned by Hero Cycles Ltd. <a href="https://herocycles.com">See their website</a></font>
-        </div></div>
-    <div id="center_content"><center>
-
+    <?php include ("inc/popup.php"); ?>
+    <div id="center_content">
+        <center>
             <body>
                 <h1>HIER MOET EEN LIVE GRAFIEK KOMEN MET DE AANGEPASTE TEMPERATUUR OFWEL HEATINDEX , TABEL KAN ER UIT IS FILLER</h1>
                 <table>
@@ -34,10 +24,8 @@
                     <tr><th>9</th><td>1234567890.0987</td><td>India</td><td>27°C</td></tr>
                     <tr><th>10</th><td>1234567890.0987</td><td>India</td><td>27°C</td></tr>
                 </table>
-
-
-
-        </center></div>
+        </center>
+    </div>
     <div id="right_sidebar"></div>
 
     <div id="footer">

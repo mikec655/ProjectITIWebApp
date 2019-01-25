@@ -3,6 +3,7 @@
     <title>PHP Test</title>
 </head>
 <body>
+
 <?php
 include_once("inc/dataReader.php");
 $testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
@@ -10,10 +11,14 @@ $testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALS
 
 foreach ($testCountry as $station){
     print_r($station);
+    $test = $station;
+    print_r(readDataOfStation("2019-01-21",$test['stn'] , "11000001000", 60, FALSE));
     echo "<br/><br/>";
 }
-/*
-$station = readDataOfStation("2019-01-21",'100050' , "11000001000", 60, FALSE);
+
+//print_r(readDataOfStation("2019-01-21",$test['stn'] , "11000001000", 60, FALSE));
+
+/*$station = readDataOfStation("2019-01-21",'100050' , "11000001000", 60, FALSE);
 
 for($i = 0; $i < count($station['time']); $i++){
     $time = $station['time'][$i];
@@ -31,6 +36,16 @@ for($i = 0; $i < count($station['time']); $i++){
         "</tr><br/><br/>";
 }*/
 ?>
+
+<select name="per1" id="per1">
+    <option selected="selected">Choose one</option>
+    <?php
+    foreach($testCountry as $stationX) { ?>
+        <option value="<?= $stationX['stn'] ?>"><?= $stationX['name'] ?></option>
+        <?php
+    } ?>
+</select>
+
 <canvas id="myChart"  width="200" height="200"></canvas>
 <script src="lib/Chart.bundle.min.js"></script>
 <script>

@@ -9,17 +9,6 @@
     <?php include ("inc/popup.php"); ?>
     <body>
         <center>
-        
-        <h1>Weather Data History of Station <?php echo $_GET['station'] ?></h1>
-        <div>
-            <div>
-                <b>Stations</b>
-                <br>
-                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                <br>
-                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            </div>
-
             <?php
             $timezone = "Asia/Colombo";
             date_default_timezone_set($timezone);
@@ -30,20 +19,22 @@
             $dateMin28 = $dateMin28->format('Y-m-d')
             ?>
             <div>
-                <form action= "history.php">
-                    <b>Agenda</b>
-                    <br>
-                    <input type="date" name="bday"
+            <h1>Weather Data History of Station <?php if(isset($_GET['station'])) echo $_GET['station'] ?></h1>
+                <form action= "history.php" method="get">
+                    <b>stations</b><input type="text" placeholder="" name="station">
+                    <b>Date</b><input type="date" name="date"
                            value=<?php echo $today; ?>
                            min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>
-                    <br>
                     <input type="submit">
                 </form>
             </div>
         </div>
         <table>
-            <tr><th>Time</th><th>Temperature</th><th>Rainfall</th></tr>
-            <?php 
+
+            
+            <?php
+            if(isset($_GET['station']) or isset($_GET['date'])){
+                echo "<tr><th>Time</th><th>Temperature</th><th>Rainfall</th></tr>"; 
                 include("inc/dataReader.php");
                 $station = readDataOfStation($_GET['date'], $_GET['station'], "11000001000", 60, FALSE);
                 for($i = 0; $i < count($station['time']); $i++){
@@ -52,6 +43,9 @@
                     $prcp = $station['prcp'][$i];
                     echo "<tr><th>$time</th><td>$temp</td><td>$prcp</td></tr>";
                 }
+            } else {
+                echo "Enter date and station!";
+            }
             ?>
         </table>
     </center>

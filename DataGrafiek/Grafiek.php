@@ -51,7 +51,7 @@ for($i = 0; $i < count($station['time']); $i++){
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{

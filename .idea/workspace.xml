@@ -142,7 +142,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548451060512" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548451644003" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/git-bash.exe" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -251,12 +251,12 @@
       <updated>1548430477671</updated>
       <workItem from="1548430482486" duration="562000" />
       <workItem from="1548431069257" duration="2393000" />
-      <workItem from="1548435647567" duration="13207000" />
+      <workItem from="1548435647567" duration="14560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15609000" />
+    <option name="totallyTimeSpent" value="16962000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -269,7 +269,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.18176973" />
       <window_info id="Structure" order="1" sideWeight="0.50080776" side_tool="true" weight="0.18017058" />

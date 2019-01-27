@@ -62,7 +62,8 @@
     }
     arsort($highest_temperatures);
     $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
+    $rank = 1;
     foreach ($highest_temperatures as $key => $value) {
-        echo "<tr><th></th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "</th></tr>";
+        echo "<tr><th>" . $rank++ . "</th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "</th></tr>";
     }
     ?>

@@ -54,7 +54,7 @@
     );
     $highest_temperatures = array();
     foreach ($countries as $country) {
-        $data = readDataOfCountry("2019-01-21", $country, "110000000000", 60, FALSE);
+        $data = readDataOfCountry("2019-01-21", $country, "110000000000", 60 * 60, FALSE);
         foreach ($data as $station) {
             $highest_temperatures[$station['stn']] = array(max($station['data']['temp']), $country, $station['name']);
             //print_r($station['data']['temp']);

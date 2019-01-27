@@ -20,11 +20,13 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
         }
     }
 
+    $byteIndex = 0;
     if($last){
-        fseek($fp, filesize($filePath) - 43);
+        $byteIndex = filesize($filePath) - 43;
+        fseek($fp, $byteIndex);
     }
 
-    $byteIndex = 0;
+    
     $length = 43;
     while(true) {
         if(!$data = fread($fp, $length)) break;
@@ -47,7 +49,7 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
     return $result;
 }
 
-// $data = readDataOfStation("2019-01-21", 10010, "111111111111", 10, FALSE);
+// $data = readDataOfStation("2019-01-21", 10010, "100000000000", 60, FALSE);
 // echo "<pre>";
 // print_r($data);
 // echo "</pre>";

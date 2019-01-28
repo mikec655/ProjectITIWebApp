@@ -37,7 +37,7 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
     print_r($selected_val);
     $rtrn_array = array();
     for ($i = 0; $i < count($selected_val['temp']); $i++) {
-        $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]),2) . '"';
+        $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]), 2) . '"';
     }
     print_r($rtrn_array)
     ?>
@@ -67,12 +67,10 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
                     data: [
                         <?php
                         $rtrn_array = array();
-                        for ($i = 0; $i < count($selected_val['temp']); $i++) {
-                            $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]),2) . '"';
-                        }
-                        /*foreach ($selected_val['temp'] as $temp) {
+
+                        foreach ($selected_val['dewp'] as $temp) {
                             $rtrn_array[] = '"' . $temp . '"';
-                        }*/
+                        }
                         echo implode(",", $rtrn_array)
                         ?>],
                     backgroundColor: [
@@ -103,6 +101,41 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
         })
     ;
 
+</script>
+<script>
+    var interval =
+        setInterval(function updateChart() {
+                //alert("hello");
+                myChart.data.datasets[0].data =
+                    [
+                        <?php
+                        $rtrn_array = array();
+                        foreach ($selected_val['dewp'] as $temp) {
+                            $rtrn_array[] = '"' . $temp . '"';
+
+                        }
+                        echo implode(",", $rtrn_array)
+                        ?>];
+
+               // myChart.data.labels[4] = "memes";
+                myChart.data.labels = [
+                    <?php $rtrn_array = array();
+                    foreach ($selected_val['time'] as $time) {
+                        $rtrn_array[] = '"' . formatSeconds($time) .
+                            '"';
+                    }
+                    echo implode(",", $rtrn_array);?>
+            ];
+
+
+
+
+                myChart.update();
+
+            }
+            ,
+            5000
+        )
 </script>
 </body>
 </html>

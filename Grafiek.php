@@ -27,7 +27,7 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
     if (isset($_POST['submit'])) {
         $selected_val = $_POST['Station'];  // Storing Selected Value In Variable
         $station_number = $selected_val;
-        $selected_val = readDataOfStation("2019-01-21", $selected_val, "11000001000", 60, FALSE);  // Retrieving Selected Value
+        $selected_val = readDataOfStation("2019-01-21", $selected_val, "11100001000", 60, FALSE);  // Retrieving Selected Value
     }
     ?>
 </div>
@@ -35,6 +35,11 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 <pre>
     <?php
     print_r($selected_val);
+    $rtrn_array = array();
+    for ($i = 0; $i < count($selected_val['temp']); $i++) {
+        $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]),2) . '"';
+    }
+    print_r($rtrn_array)
     ?>
 </pre>
 
@@ -62,9 +67,12 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
                     data: [
                         <?php
                         $rtrn_array = array();
-                        foreach ($selected_val['temp'] as $temp) {
-                            $rtrn_array[] = '"' . $temp . '"';
+                        for ($i = 0; $i < count($selected_val['temp']); $i++) {
+                            $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]),2) . '"';
                         }
+                        /*foreach ($selected_val['temp'] as $temp) {
+                            $rtrn_array[] = '"' . $temp . '"';
+                        }*/
                         echo implode(",", $rtrn_array)
                         ?>],
                     backgroundColor: [

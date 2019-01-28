@@ -26,17 +26,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/dataReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
+            <state relative-caret-position="841">
               <caret line="58" column="81" selection-start-line="58" selection-start-column="81" selection-end-line="58" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DataGrafiek/Grafiek.php">
+        <entry file="file://$PROJECT_DIR$/Grafiek.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="22" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -53,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/toptentable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
+            <state relative-caret-position="688">
               <caret line="56" column="85" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="85" />
             </state>
           </provider>
@@ -79,6 +92,7 @@
         <option value="$PROJECT_DIR$/DataGrafiek/test.html" />
         <option value="$PROJECT_DIR$/inc/dataReader.php" />
         <option value="$PROJECT_DIR$/DataGrafiek/Grafiek.php" />
+        <option value="$PROJECT_DIR$/Grafiek.php" />
       </list>
     </option>
   </component>
@@ -98,7 +112,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="537" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -114,11 +129,6 @@
             <path>
               <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProjectITIWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="DataGrafiek" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProjectITIWebApp" type="b2602c69:ProjectViewProjectNode" />
@@ -142,7 +152,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548451644003" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548687144885" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/git-bash.exe" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -151,6 +161,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Keiichi\Documents\GitHub\ProjectITIWebApp" />
       <recent name="C:\Users\Keiichi\Documents\GitHub\ProjectITIWebApp\lib" />
     </key>
   </component>
@@ -252,12 +263,12 @@
       <workItem from="1548430482486" duration="562000" />
       <workItem from="1548431069257" duration="2393000" />
       <workItem from="1548435647567" duration="14560000" />
-      <workItem from="1548681723659" duration="2029000" />
+      <workItem from="1548681723659" duration="4935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18991000" />
+    <option name="totallyTimeSpent" value="21897000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,7 +283,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.18336888" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.2563966" />
       <window_info id="Structure" order="1" sideWeight="0.50080776" side_tool="true" weight="0.18017058" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -349,9 +360,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataGrafiek/Grafiek.html" />
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/heatindexgraph.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -396,13 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/dataReader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="81" selection-start-line="58" selection-start-column="81" selection-end-line="58" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/history.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -410,17 +411,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inc/dataReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="58" column="81" selection-start-line="58" selection-start-column="81" selection-end-line="58" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/toptentable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
+        <state relative-caret-position="688">
           <caret line="56" column="85" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataGrafiek/Grafiek.php">
+    <entry file="file://$PROJECT_DIR$/Grafiek.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

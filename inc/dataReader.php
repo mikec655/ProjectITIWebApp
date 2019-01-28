@@ -82,6 +82,20 @@ function readDataOfCountry($date, $country, $needed, $frequency, $last){
     return $stations;
 }
 
+function formatSeconds( $milliseconds )
+{
+    $seconds = floor($milliseconds / 1000);
+    $minutes = floor($seconds / 60);
+    $hours = floor($minutes / 60);
+    $milliseconds = $milliseconds % 1000;
+    $seconds = $seconds % 60;
+    $minutes = $minutes % 60;
+
+    $format = '%u:%02u';
+    $time = sprintf($format, $hours, $minutes, $seconds, $milliseconds);
+    return rtrim($time, '0');
+}
+
 //readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 
 // $data = readDataOfCountry("2019-01-21", "VIETNAM", "000000010000", 0, TRUE);

@@ -7,34 +7,6 @@
 <?php
 include_once("inc/dataReader.php");
 $testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
-
-
-foreach ($testCountry as $station){
-    print_r($station);
-    $test = $station;
-    print_r(readDataOfStation("2019-01-21",$test['stn'] , "11000001000", 60, FALSE));
-    echo "<br/><br/>";
-}
-
-//print_r(readDataOfStation("2019-01-21",$test['stn'] , "11000001000", 60, FALSE));
-
-/*$station = readDataOfStation("2019-01-21",'100050' , "11000001000", 60, FALSE);
-
-for($i = 0; $i < count($station['time']); $i++){
-    $time = $station['time'][$i];
-    $temp = round($station['temp'][$i], 1);
-    $prcp = round($station['prcp'][$i], 2);
-    echo "<tr>" .
-        "Time: ".
-        "<th>$time</th>" .
-        "<br/>" .
-        "Temp: ".
-        "<td>$temp</td>" .
-        "<br/>" .
-        "Prcp: ".
-        "<td>$prcp</td>" .
-        "</tr><br/><br/>";
-}*/
 ?>
 
 <select name="per1" id="per1">
@@ -46,6 +18,30 @@ for($i = 0; $i < count($station['time']); $i++){
     } ?>
 </select>
 
+
+<form action="#" method="post">
+    <select name="Color">
+        <?php
+        foreach($testCountry as $stationX) { ?>
+            <option value="<?= $stationX['stn'] ?>"><?= $stationX['name'] ?></option>
+            <?php
+        } ?>
+    </select>
+    <input type="submit" name="submit" value="Get Selected Values" />
+</form>
+<?php
+if(isset($_POST['submit'])){
+    $selected_val = $_POST['Color'];  // Storing Selected Value In Variable
+    echo "You have selected :" .$selected_val;  // Displaying Selected Value
+    $selected_val = readDataOfStation("2019-01-21",$selected_val , "11000001000", 60, FALSE);
+}
+?>
+<pre>
+    <?php
+    print_r($selected_val)
+    ?>
+</pre>
+
 <canvas id="myChart"  width="200" height="200"></canvas>
 <script src="lib/Chart.bundle.min.js"></script>
 <script>
@@ -55,7 +51,7 @@ for($i = 0; $i < count($station['time']); $i++){
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
-                label: 'Weather data of India',
+                label: 'Weather data of India/' .$selected_val ,
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -86,6 +82,7 @@ for($i = 0; $i < count($station['time']); $i++){
             }
         }
     });
+
 </script>
 </body>
 </html>

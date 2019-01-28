@@ -3,7 +3,12 @@
 function readDataOfStation($date, $station, $needed, $frequency, $last) {
     
     $filePath = "testdata/" . $date . "/" . $station . ".dat";
-    if(!$fp = fopen ($filePath, 'rb')) return 0;
+    if(file_exists($filePath)) {
+        if(!$fp = fopen ($filePath, 'rb')) return -1;
+    } else {
+        return -1;
+    }
+    
 
     $result = array();
 
@@ -14,17 +19,20 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
             $result[$keys[$i]] = array();
         }
     }
+
+    $byteIndex = 0;
+    if($last){
+        $byteIndex = filesize($filePath) - 43;
+        fseek($fp, $byteIndex);
+    }
+
     
     $length = 43;
     while(true) {
-        if($last){
-            $fz = filesize ($filePath);
-            $data = fread($fp, $fz - 43);
-        } 
         if(!$data = fread($fp, $length)) break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
 
-        if($array["time"] % ($frequency * 1000) != 0) continue;
+        // if($array["time"] % ($frequency * 1000) != 0) continue;
 
         $i = 0;
         foreach ($array as $key => $value){
@@ -33,16 +41,15 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
             }
             $i++;
         }
-        
-        // echo "<pre>";
-        // print_r($array);
-        // echo "</pre>";
+
+        $byteIndex += 43 * $frequency;
+        fseek($fp, $byteIndex);
     }
 
     return $result;
 }
 
-// $data = readDataOfStation("2019-01-21", 10010, "100000010000", 60, FALSE);
+// $data = readDataOfStation("2019-01-21", 10010, "100000000000", 60, FALSE);
 // echo "<pre>";
 // print_r($data);
 // echo "</pre>";

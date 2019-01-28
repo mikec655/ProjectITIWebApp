@@ -7,56 +7,53 @@
     ?>
 </head>
 <body>
-<?php include ("inc/popup.php"); ?>
 
 <?php
 include_once("inc/dataReader.php");
-$testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
+$country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 ?>
 <div class="Form_container" style="position: centers">
     <form action="#" method="post">
-        <select name="Color">
+        <select name="Station">
             <?php
-            foreach($testCountry as $stationX) { ?>
+            foreach ($country as $stationX) { ?>
                 <option value="<?= $stationX['stn'] ?>"><?= $stationX['name'] ?></option>
                 <?php
             } ?>
         </select>
-        <input type="submit" name="submit" value="Get Selected Values" />
+        <input type="submit" name="submit" value="Get Selected Values"/>
     </form>
     <?php
-    if(isset($_POST['submit'])){
-        $selected_val = $_POST['Color'];  // Storing Selected Value In Variable
-        echo "You have selected :" .$selected_val;  // Displaying Selected Value
+    if (isset($_POST['submit'])) {
+        $selected_val = $_POST['Station'];  // Storing Selected Value In Variable
         $station_number = $selected_val;
-        $selected_val = readDataOfStation("2019-01-21",$selected_val , "11000001000", 60, FALSE);
+        $selected_val = readDataOfStation("2019-01-21", $selected_val, "11000001000", 60, FALSE);  // Retrieving Selected Value
     }
     ?>
 </div>
 
 
-
 <div class="chart_container" style="position: relative; height: auto; width: 100%">
-    <canvas id="myChart"  ></canvas>
-
+    <canvas id="myChart"></canvas>
 </div>
+
 <script src="lib/Chart.bundle.min.js"></script>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"],
+            labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             datasets: [{
-                label: 'Weather data of India/station '  + <?php echo $station_number?>,
-                data:[
+                label: 'Weather data of India/station ' + <?php echo $station_number?>,
+                data: [
                     <?php
-                        $rtrn_array = array();
-                        foreach($selected_val['temp'] as $temp){
-                            $rtrn_array[] = '"'.$temp.'"';
-                        }
-                        echo implode(",",$rtrn_array)
-                    ?>] ,
+                    $rtrn_array = array();
+                    foreach ($selected_val['temp'] as $temp) {
+                        $rtrn_array[] = '"' . $temp . '"';
+                    }
+                    echo implode(",", $rtrn_array)
+                    ?>],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -80,19 +77,14 @@ $testCountry = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALS
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero: true
                     }
                 }]
             },
-            responsive : true
+            responsive: true
         }
     });
 
 </script>
-<div id="footer">
-    <?php
-    require("inc/footermodule.php")
-    ?>
-</div>
 </body>
 </html>

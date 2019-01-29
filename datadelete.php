@@ -17,15 +17,20 @@ kies editor
 */
 
 $datablok_length = 43;
-
-//checkt voro alle .dat bestanden in testdata
-foreach (glob("testdata/*/*.dat") as $file) {
+$date_realtime = date("Y-m-d") ;
+//     ***maybe: for each veranderen naar sysdate -1 zodat je de vorige dag formateerd
+//checkt voor alle .dat bestanden in testdata
+echo $date_realtime;
+$back_day = date('Y-m-d', strtotime($date_realtime . "-1 day") );
+echo $back_day;
+//$back_day i.p.v. * hieronder 
+foreach (glob("testdata/".$back_day."/*.dat") as $file) {
 
     //echo "$file size " . filesize($file) . "\n";
 
     echo "<br>";
     $new_file = $file."_";    //nieuwe filenaam van gefilterde zooi.
-    $new_handle = fopen($new_file, "w");    ///////////////deze  moet ander map maybe voor data maar een keer filteren.
+    $new_handle = fopen($new_file, "w");    ///////////////deze  moet ander map maybe voor data maar een keer filteren ipv van vaker.
     $handle = fopen($file, "rb");
     
     

@@ -27,7 +27,7 @@
         if (isset($_POST['submit'])) {
             $selected_val = $_POST['Station'];  // Storing Selected Value In Variable
             $station_number = $selected_val;
-            $selected_val = readDataOfStation("2019-01-21", $selected_val, "11100001000", 60, FALSE);  // Retrieving Selected Value
+            $selected_val = readDataOfStation(date("Y-m-d"), $selected_val, "11100000000", 60, FALSE);  // Retrieving Selected Value
         }
         ?>
     </div>

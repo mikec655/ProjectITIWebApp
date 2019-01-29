@@ -104,32 +104,9 @@ function floorp($val, $precision)
     return floor($val * $mult) / $mult;
 }
 
-function calculateHeatIndex($currentTemp, $currentDewpoint)
-{
-    /*//Setting parameters for Function
-    $temperature = $currentTemp;
-    $humidity = ($temperature/$currentDewpoint);
-    $answer;
-    $C1 = -42.379;
-    $C2 = 2.04901523;
-    $C3 = 10.14333127;
-    $C4 = -0.22475541;
-    $C5 = -.00683783;
-    $C6 = -5.481717E-2;
-    $C7 = 1.22874E-3;
-    $C8 = 8.5282E-4;
-    $C9 = -1.99E-6;
-    $T = $temperature;
-    $R = $humidity;
-    $T2 = $temperature * $temperature;
-    $R2 = $humidity * $humidity;
+function calculateHeatIndex($currentTemp, $currentWindspeed){
 
-    //Function of Calculating Heat Index
-    $answer = $C1 + ($C2 * $T) + ($C3 * $R) + ($C4 * $T * $R) + ($C5 * $T2) + ($C6 * $R2) + ($C7 * $T2 * $R) + ($C8 * $T * $R2) + ($C9 * $T2 * $R2);
-
-    return $answer;*/
-    //Tgevoel(°C) = 33 + (Tlucht- 33)*(0.474 + 0.454√(v)-0.0454.v)
-    $awnser = 33 + ($currentTemp-33)*(0.474 + 0.454 * sqrt($currentDewpoint)-0.0454*$currentDewpoint);
+    $awnser = 33 + ($currentTemp-33)*(0.474 + 0.454 * sqrt($currentWindspeed)-0.0454*$currentWindspeed);
     return $awnser;
 
 }

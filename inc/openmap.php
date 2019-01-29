@@ -66,8 +66,6 @@
                     }
                 }
                 echo "[]];";
-               
-
             ?>
 
             var map, mappingLayer, vectorLayer, selectMarkerControl, selectedFeature;
@@ -79,13 +77,15 @@
                 graphicYOffset: -24
             };
 
+            console.log(curday());
+
             function onFeatureSelect(feature) {
                 selectedFeature = feature;
                 popup = new OpenLayers.Popup.FramedCloud("tempId", feature.geometry.getBounds().getCenterLonLat(),
                                         null,
                                         selectedFeature.attributes.stn + ": " + selectedFeature.attributes.name + 
                                         ", Rainfall: " + Math.round(selectedFeature.attributes.rainfall, 2) + "mm " +
-                                        "<a href='history.php?date=2019-01-21&station=" + selectedFeature.attributes.stn + "' class='blacklink'>More info</a>",
+                                        "<a href='history.php?date=" + curday() + "&station=" + selectedFeature.attributes.stn + "' class='blacklink'>More info</a>",
                                         null, true);
                 feature.popup = popup;
                 map.addPopup(popup);
@@ -123,6 +123,17 @@
                 lonLat.transform("EPSG:4326", map.getProjectionObject());
                 var feature = new OpenLayers.Feature.Vector(lonLat, {stn: value[0], name: value[1], rainfall: value[5]}, style);
                 vectorLayer.addFeatures(feature);
+            }
+
+            function curday(){
+                today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; 
+                var yyyy = today.getFullYear();
+
+                if(dd < 10) dd = '0' + dd;
+                if(mm < 10) mm = '0' + mm;
+                return (yyyy + "-" + mm + "-" + dd);
             }
 
             init();

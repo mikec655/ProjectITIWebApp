@@ -44,7 +44,7 @@
                         $time = date("H:i", $station['time'][$i] / 1000);
                         $temp = round($station['temp'][$i], 1);
                         $prcp = round($station['prcp'][$i], 2);
-                        echo "<tr><th>$time</th><td>$temp</td><td>$prcp</td></tr>";
+                        echo "<tr><th>$time</th><td>$temp °C</td><td>$prcp mm</td></tr>";
                     }
                 }
             } else {

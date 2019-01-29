@@ -10,8 +10,7 @@
             <a href="toptenheat.php" class="button">Top 10 Heat</a> | 
             <a href="rainfall.php" class="button">Rainfall Map</a> |
             <a href="heatindexgraph.php" class="button">Heatindex</a> |
-            <a href="history.php" class="button">History</a> |
-            <a href="grafiek.php" class="button">Stations</a>
+            <a href="history.php" class="button">History</a>
         </b>
     </div>
 </head>

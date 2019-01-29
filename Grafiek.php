@@ -32,16 +32,6 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
     ?>
 </div>
 
-<pre>
-    <?php
-    print_r($selected_val);
-    $rtrn_array = array();
-    for ($i = 0; $i < count($selected_val['temp']); $i++) {
-        $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$i], $selected_val['dewp'][$i]), 2) . '"';
-    }
-    print_r($rtrn_array)
-    ?>
-</pre>
 
 
 <div class="chart_container" style="position: relative; height: auto; width: 100%">
@@ -67,9 +57,9 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
                     data: [
                         <?php
                         $rtrn_array = array();
-
+                        $counter = 0;
                         foreach ($selected_val['dewp'] as $temp) {
-                            $rtrn_array[] = '"' . $temp . '"';
+                            $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter],$temp),2) . '"';
                         }
                         echo implode(",", $rtrn_array)
                         ?>],
@@ -105,19 +95,18 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 <script>
     var interval =
         setInterval(function updateChart() {
-                //alert("hello");
                 myChart.data.datasets[0].data =
                     [
                         <?php
                         $rtrn_array = array();
+                        $counter = 0;
                         foreach ($selected_val['dewp'] as $temp) {
-                            $rtrn_array[] = '"' . $temp . '"';
+
+                            $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter],$temp),2) . '"';
 
                         }
                         echo implode(",", $rtrn_array)
                         ?>];
-
-               // myChart.data.labels[4] = "memes";
                 myChart.data.labels = [
                     <?php $rtrn_array = array();
                     foreach ($selected_val['time'] as $time) {
@@ -134,7 +123,7 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 
             }
             ,
-            5000
+            60000 //elke minuut update de chart
         )
 </script>
 </body>

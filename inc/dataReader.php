@@ -104,11 +104,11 @@ function floorp($val, $precision)
     return floor($val * $mult) / $mult;
 }
 
-function calculateHeatIndex($currentTemp, $currentHumidity)
+function calculateHeatIndex($currentTemp, $currentDewpoint)
 {
     //Setting parameters for Function
     $temperature = $currentTemp;
-    $humidity = $currentHumidity;
+    $humidity = ($temperature/$currentDewpoint);
     $answer;
     $C1 = -42.379;
     $C2 = 2.04901523;

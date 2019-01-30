@@ -18,18 +18,19 @@
     <div id="footer">
         <center>
             <form method="post">
-                <input type="submit" name="downloadxml" id="downloadxml" value="Download XML" /><br/>
+                <input type="submit" name="downloadxml" id="downloadxml" value="Generate XML" /><br/>
             </form>
             <?php
             if (array_key_exists('downloadxml', $_POST)) {
-                $dom->save('Top 10 of ' . date("Y-m-d") . '.xml');
-                echo "Top 10 of " . date("Y-m-d") . ".xml has been successfully created";
-                }
-                ?>
-            </center>
-            <?php
-            require("inc/footermodule.php")
+                $dom->save($linkpath);
+                echo "Top 10 of " . $linkpath . " has been successfully created<br>";
+                echo '<a href="' . $linkpath .'" download>Click here to download</a>';
+            }
             ?>
+        </center>
+        <?php
+        require("inc/footermodule.php")
+        ?>
     </div>
 </body>
 </html>

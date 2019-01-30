@@ -74,7 +74,9 @@ foreach ($highest_temperatures as $key => $value) {
     round($value[0], 1);
 }
 
-$currentday = date('l jS \of F Y h:i:s A');
+$currentday = date("Y-m-d");
+$linkpath = 'Top 10 of ' . $currentday . '.xml';
+
 $dom = new DOMDocument();
 $dom->encoding = 'utf-8';
 $dom->xmlVersion = '1.0';

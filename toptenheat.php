@@ -22,8 +22,8 @@
             </form>
             <?php
             if (array_key_exists('downloadxml', $_POST)) {
-                $dom->save($xml_file_name);
-                echo "Your file has been successfully created";
+                $dom->save('HIERMOETHUIDIGEDATUMSTAAN.xml');
+                echo "$xml_file_name has been successfully created";
             }
             ?>
         </center>

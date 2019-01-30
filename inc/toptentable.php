@@ -83,7 +83,7 @@ $dom->formatOutput = true;
 $xml_file_name = 'top10 warmest countries.xml';
 $root = $dom->createElement('Top10_countries');
 foreach ($highest_temperatures as $key => $value) {
-    $station_node = $dom->createElement('Top10');
+    $station_node = $dom->createElement('Rank' . $rankxml);
     $attr_rank_id = new DOMAttr('rank', $rankxml);
     $station_node->setAttributeNode($attr_rank_id);
     $child_node_stationnr = $dom->createElement('Station_number', $key);

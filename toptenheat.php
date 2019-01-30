@@ -22,11 +22,11 @@
             </form>
             <?php
             if (array_key_exists('downloadxml', $_POST)) {
-                $dom->save('HIERMOETHUIDIGEDATUMSTAAN.xml');
-                echo "$xml_file_name has been successfully created";
-            }
-            ?>
-        </center>
+                $dom->save('Top 10 of ' . date("Y-m-d") . '.xml');
+                echo "Top 10 of " . date("Y-m-d") . ".xml has been successfully created";
+                }
+                ?>
+            </center>
             <?php
             require("inc/footermodule.php")
             ?>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Historical Data - Hero Cycles Weather Application</title>
         <?php
         require("inc/headermodule.php");
         require("inc/loginrequire.php");

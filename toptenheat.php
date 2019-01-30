@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Top 10 Heat Index - Hero Cycles Weather Application</title>
+        <title>Top 10 Highest Temperatures Asia - Hero Cycles Weather Application</title>
         <?php
         require("inc/headermodule.php");
         require("inc/loginrequire.php");

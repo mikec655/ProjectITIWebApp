@@ -17,11 +17,19 @@
     <div id="right_sidebar"></div>
     <div id="footer">
         <center>
-            <button></i> Download data to XML</button>
+            <form method="post">
+                <input type="submit" name="downloadxml" id="downloadxml" value="Download XML" /><br/>
+            </form>
+            <?php
+            if (array_key_exists('downloadxml', $_POST)) {
+                $dom->save($xml_file_name);
+                echo "Your file has been successfully created";
+            }
+            ?>
         </center>
-        <?php
-        require("inc/footermodule.php")
-        ?>
+            <?php
+            require("inc/footermodule.php")
+            ?>
     </div>
 </body>
 </html>

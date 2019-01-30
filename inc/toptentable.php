@@ -66,4 +66,25 @@
     foreach ($highest_temperatures as $key => $value) {
         echo "<tr><th>Rank #" . $rank++ . "</th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "°C</th></tr>";
     }
+    $valuetempforme = round($value[0], 1);
+    $currentday = date('l jS \of F Y h:i:s A');
+    $dom = new DOMDocument();
+            $dom->encoding = 'utf-8';
+            $dom->xmlVersion = '1.0';
+            $dom->formatOutput = true;
+            $xml_file_name = 'top10 warmest countries.xml';
+            $root = $dom->createElement('Top10_countries');
+            $station_node = $dom->createElement('Top10');
+            $attr_rank_id = new DOMAttr('rank', $rank++);
+            $station_node->setAttributeNode($attr_rank_id);
+            $child_node_stationnr = $dom->createElement('Station_number', $key);
+            $station_node->appendChild($child_node_stationnr);
+            $child_node_country = $dom->createElement('Country', $value[1]);
+            $station_node->appendChild($child_node_country);
+            $child_node_stationname = $dom->createElement('Station_Name', $value[2]);
+            $station_node->appendChild($child_node_stationname);
+            $child_node_temperature = $dom->createElement('Temp', $valuetempforme);
+            $station_node->appendChild($child_node_temperature);
+            $root->appendChild($station_node);
+            $dom->appendChild($root);
     ?>

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Rainfall Map - Hero Cycles Weather Application</title>
+        <title>Rainfall Map Asia - Hero Cycles Weather Application</title>
         <?php
         require("inc/headermodule.php");
         require("inc/loginrequire.php");

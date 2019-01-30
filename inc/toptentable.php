@@ -74,7 +74,6 @@ foreach ($highest_temperatures as $key => $value) {
     round($value[0], 1);
 }
 
-$roundedtemp = round($value[0], 1);
 $currentday = date('l jS \of F Y h:i:s A');
 $dom = new DOMDocument();
 $dom->encoding = 'utf-8';
@@ -92,7 +91,7 @@ foreach ($highest_temperatures as $key => $value) {
     $station_node->appendChild($child_node_country);
     $child_node_stationname = $dom->createElement('Station_Name', $value[2]);
     $station_node->appendChild($child_node_stationname);
-    $child_node_temperature = $dom->createElement('Temp', $roundedtemp);
+    $child_node_temperature = $dom->createElement('Temp', round($value[0], 1));
     $station_node->appendChild($child_node_temperature);
     $root->appendChild($station_node);
     $dom->appendChild($root);

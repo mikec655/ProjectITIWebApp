@@ -14,15 +14,6 @@ arsort($highest_temperatures);
 $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
 $rank = 1;
 
-//foreach ($highest_temperatures as $key => $value) {
-//    $rank;
-//    $rankxml = $rank;
-//    $key;
-//    $value[1];
-//    $value[2];
-//    round($value[0], 1);
-//}
-
 $currentday = date("Y-m-d");
 $linkpath = 'Top 10 of ' . $currentday . '.xml';
 

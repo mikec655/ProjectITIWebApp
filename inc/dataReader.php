@@ -76,11 +76,6 @@ function readDataOfCountry($date, $country, $needed, $frequency, $last) {
             array_push($stations, $namedData);
         }
     }
-
-    // echo "<pre>";
-    // print_r($stations);
-    // echo "</pre>";
-
     return $stations;
 }
 
@@ -123,9 +118,7 @@ function readDataOfAsia($date, $needed, $frequency, $last) {
         array_push($stationnetje, $data2);
         
     }
-//    echo"<pre>";
-//    print_r($stationnetje);
-//    echo"</pre>";
+
     return $stationnetje;
     
 }

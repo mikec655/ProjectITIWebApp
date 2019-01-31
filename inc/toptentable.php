@@ -1,7 +1,7 @@
 <?php
 
-include("dataReader.php");
-include("countriesasia.php");
+include("inc/dataReader.php");
+include("inc/countriesasia.php");
 
 $highest_temperatures = array();
 

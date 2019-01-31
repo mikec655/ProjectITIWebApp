@@ -1,11 +1,11 @@
 <?php
 
-function readDataOfStation($date, $station, $needed, $frequency, $last)
-{
+function readDataOfStation($date, $station, $needed, $frequency, $last) {
 
     $filePath = "testdata/" . $date . "/" . $station . ".dat";
     if (file_exists($filePath)) {
-        if (!$fp = fopen($filePath, 'rb')) return -1;
+        if (!$fp = fopen($filePath, 'rb'))
+            return -1;
     } else {
         return -1;
     }
@@ -30,7 +30,8 @@ function readDataOfStation($date, $station, $needed, $frequency, $last)
 
     $length = 43;
     while (true) {
-        if (!$data = fread($fp, $length)) break;
+        if (!$data = fread($fp, $length))
+            break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
 
         // if($array["time"] % ($frequency * 1000) != 0) continue;
@@ -55,9 +56,9 @@ function readDataOfStation($date, $station, $needed, $frequency, $last)
 // print_r($data);
 // echo "</pre>";
 
-function readDataOfCountry($date, $country, $needed, $frequency, $last)
-{
-    if (!$fp = fopen("testdata/stations.csv", 'r')) return 0;
+function readDataOfCountry($date, $country, $needed, $frequency, $last) {
+    if (!$fp = fopen("testdata/stations.csv", 'r'))
+        return 0;
     $stations = array();
 
     $keys = array("stn", "name", "lat", "long", "elev", "data");
@@ -73,7 +74,6 @@ function readDataOfCountry($date, $country, $needed, $frequency, $last)
             $namedData["elev"] = $station[5];
             $namedData["data"] = $data;
             array_push($stations, $namedData);
-
         }
     }
 
@@ -84,8 +84,7 @@ function readDataOfCountry($date, $country, $needed, $frequency, $last)
     return $stations;
 }
 
-function formatSeconds($milliseconds)
-{
+function formatSeconds($milliseconds) {
     $seconds = floor($milliseconds / 1000);
     $minutes = floor($seconds / 60);
     $hours = floor($minutes / 60);
@@ -98,23 +97,36 @@ function formatSeconds($milliseconds)
     return rtrim($time, '0');
 }
 
-function floorp($val, $precision)
-{
+function floorp($val, $precision) {
     $mult = pow(10, $precision); // Can be cached in lookup table
     return floor($val * $mult) / $mult;
 }
 
-function calculateHeatIndex($currentTemp, $currentWindspeed){
+function calculateHeatIndex($currentTemp, $currentWindspeed) {
 
-    $awnser = 33 + ($currentTemp-33)*(0.474 + 0.454 * sqrt($currentWindspeed)-0.0454*$currentWindspeed);
+    $awnser = 33 + ($currentTemp - 33) * (0.474 + 0.454 * sqrt($currentWindspeed) - 0.0454 * $currentWindspeed);
     return $awnser;
-
 }
 
-//readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
 
-// $data = readDataOfCountry("2019-01-21", "VIETNAM", "000000010000", 0, TRUE);
-// echo "<pre>";
-// print_r($data);
-// echo "</pre>";
+
+function readDataOfAsia($date, $needed, $frequency, $last) {
+    $stationnetje = array();
+    include ("stationsasia.php");
+    foreach ($stationsasia as $station) {
+        $data = readDataOfStation($date, $station[0], $needed, $frequency, $last);
+        $data2 = array();
+        $data2[0] = $station[0];
+        $data2[1] = $station[1];
+        $data2[2] = $station[2];
+        $data2[3] = $data;
+        array_push($stationnetje, $data2);
+        
+    }
+//    echo"<pre>";
+//    print_r($stationnetje);
+//    echo"</pre>";
+    return $stationnetje;
+    
+}
 ?>

@@ -5,6 +5,12 @@
             require("inc/headermodule.php");
             require("inc/loginrequire.php");
         ?>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+         <style>
+  #john {
+    color: black;
+  }
+  </style>
     </head>
         <?php include ("inc/popup.php"); ?>
         <?php include ("inc/stationsasia.php"); ?>
@@ -37,12 +43,14 @@
                             echo 'Country' . $_GET['station'] . 'not in Asia';
                         } ?></h2>   
                 <form action= "history.php" method="get">
-                <select name="country">
+                <select name="country" class="iscountry">
                     <?php foreach ($countriesasia as $countries): ?>
-                        <?php echo "<option value=\"$countries\" >$countries</option>"; ?>
+                        <?php echo "<option value=\"$countries\">$countries</option>"; ?>
                     <?php endforeach; ?>
                     </select>
-                    
+
+                    <div id ='john'></div>
+
                     <b>Stations</b><input type="text" value="<?php if(isset($_GET['station'])) echo $_GET['station']; ?>" name="station">
                     <b>Date</b><input type="date" name="date"
                            value=<?php if(isset($_GET['date'])) echo $_GET['date']; else echo $today; ?>
@@ -54,13 +62,25 @@
         <table>
             <?php require("inc/history_table.php"); ?>
             <?php require("inc/savexmlmodule.php");?>
-    </head>
-    <body onload="startTime()">
-    <div id="txt"></div>
-        </table>
-        </center>
-    </body>
-        <div class="footer">
+</head>
+<body onload="startTime()">
+<div id="txt"></div>
+    </table>
+    </center>
+    <script>
+$( "select" )
+  .change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "#john" ).text( str );
+    $document.myform.extra.value = "some value";
+  })
+  .change();
+    </script>
+</body>
+    <div class="footer">
         <?php require("inc/footermodule.php") ?>
-        </div>
+    </div>
 </html>

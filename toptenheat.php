@@ -22,9 +22,9 @@
             </form>
             <?php
             if (array_key_exists('downloadxml', $_POST)) {
-                $dom->save($linkpath);
-                echo "Top 10 of " . $linkpath . " has been successfully created<br>";
-                echo '<a href="' . $linkpath .'" download>Click here to download</a>';
+                $dom->save("public/" . $linkpath);
+                echo $linkpath . " has been successfully created<br>";
+                echo '<a href="' . "public/" . $linkpath .'" download>Click here to download</a>';
             }
             ?>
         </center>

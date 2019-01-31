@@ -63,6 +63,7 @@ padding-bottom: 6px;
 	text-align: center;
         background-color: #001C49;  
         z-index: 999;
+        clear: both;
 }
 
 table {

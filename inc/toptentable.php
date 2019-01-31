@@ -14,8 +14,7 @@ arsort($highest_temperatures);
 $highest_temperatures = array_slice($highest_temperatures, 0, 10, TRUE);
 $rank = 1;
 
-$currentday = date("Y-m-d");
-$linkpath = 'Top 10 of ' . $currentday . '.xml';
+$linkpath = 'Top 10 of ' . date("Y-m-d") . '.xml';
 
 $dom = new DOMDocument();
 $dom->encoding = 'utf-8';

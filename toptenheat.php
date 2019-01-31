@@ -18,7 +18,7 @@
     <div id="footer">
         <center>
             <form method="post">
-                <input type="submit" name="downloadxml" id="downloadxml" value="Generate XML" /><br/>
+                <input type="submit" name="downloadxml" id="downloadxml" value="Generate XML"/><br/>
             </form>
             <?php
             if (array_key_exists('downloadxml', $_POST)) {

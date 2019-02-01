@@ -16,9 +16,9 @@
         </div>
         <div id="right_sidebar"></div>
     </body>
-    <div id="footer">
-        <?php
-        require("inc/footermodule.php")
-        ?>
-    </div>
+        <div id="footer">
+            <?php
+            require("inc/footermodule.php")
+            ?>
+        </div>
 </html>

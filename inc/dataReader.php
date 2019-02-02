@@ -2,7 +2,7 @@
 
 function readDataOfStation($date, $station, $needed, $frequency, $last) {
 
-    $filePath = "testdata/" . $date . "/" . $station . ".dat";
+    $filePath = "../testdata/" . $date . "/" . $station . ".dat";
     if (file_exists($filePath)) {
         if (!$fp = fopen($filePath, 'rb'))
             return -1;

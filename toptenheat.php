@@ -1,19 +1,24 @@
 <html>
     <head>
         <title>Top 10 Highest Temperatures Asia - Hero Cycles Weather Application</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <?php
         require("inc/headermodule.php");
         require("inc/loginrequire.php");
         ?>
     </head>
     <?php include ("inc/popup.php"); ?>
-    <div id="center_content"><center><body>
-                <h1>Top 10 places with highest temperatures</h1>
-                <table>
-                    <tr><th></th><th>Weather Station</th><th>Country</th><th>Name</th><th>Temperature</th></tr>
-                    <?php include("inc/toptentable.php"); ?>
-                </table>
-        </center></div>
+    <div id="center_content">
+        <center>
+            <img src="img/load.gif" height="200px" width="200px" style="margin: 100px">
+        </center>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#center_content").load("inc/toptentable.php");
+        });
+    </script>
+        
     <div id="right_sidebar"></div>
     <div id="footer">
         <center>

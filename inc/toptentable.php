@@ -1,7 +1,7 @@
 <?php
 
-include("inc/dataReader.php");
-include("inc/countriesasia.php");
+include("dataReader.php");
+include("countriesasia.php");
 
 $highest_temperatures = array();
 
@@ -21,6 +21,8 @@ $dom->encoding = 'utf-8';
 $dom->xmlVersion = '1.0';
 $dom->formatOutput = true;
 $root = $dom->createElement('Top10_countries');
+echo "<center><h1>Top 10 temperatures in Asia</h1>";
+echo "<table><tr><th></th><th>Weather Station</th><th>Country</th><th>Name</th><th>Temperature</th></tr>";
 foreach ($highest_temperatures as $key => $value) {
     $station_node = $dom->createElement('Rank' . $rank);
     $attr_rank_id = new DOMAttr('rank', $rank);
@@ -38,4 +40,5 @@ foreach ($highest_temperatures as $key => $value) {
     echo "<tr><th>Rank #" . $rank . "</th><th>" . $key . "</th><th>" . $value[1] . "</th><th>" . $value[2] . "</th><th>" . round($value[0], 1) . "°C</th></tr>";
     $rank++;
 }
+echo "</table></center>";
 ?>

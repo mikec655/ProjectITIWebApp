@@ -15,6 +15,9 @@
         <div>
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
+        <div class="login">
+                <?php require("inc/loginrequire.php"); ?>
+        </div>
         <div class="container">
             <div id="content">
                 <div class="col9 grayborder">

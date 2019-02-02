@@ -15,8 +15,10 @@
         <div>
             <img src="img/headerHC.jpg" alt="HeroCycles Banner" class="headerimg"/>
         </div>
-        <div>    
-            <?php require("inc/loginrequire.php"); ?>
+        <div class="login">
+            <center>
+                <?php require("inc/loginrequire.php"); ?>
+            </center>
         </div>
         <div id="delimiter"></div>
         <div class="container">

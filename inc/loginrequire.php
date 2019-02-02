@@ -1,5 +1,4 @@
 <html>
-    <center>
         <?php
         session_start();
 
@@ -15,5 +14,4 @@
             include('loginscript.php');
 
         ?>
-    </center>
 </html>

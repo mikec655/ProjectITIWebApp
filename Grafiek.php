@@ -2,7 +2,7 @@
 <head>
     <title>PHP Test</title>
     <?php
-    require("inc/headermodule.php");
+    require("inc/header.php");
     require("inc/loginrequire.php");
     ?>
 </head>

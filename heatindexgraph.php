@@ -15,8 +15,8 @@
         <div>
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
-        <div>    
-            <?php require("inc/loginrequire.php"); ?>
+        <div class="login">
+                <?php require("inc/loginrequire.php"); ?>
         </div>
         <div id="delimiter"></div>
         <div class="container">

@@ -1,53 +1,66 @@
-<html>
+<!DOCTYPE html>
+<html lang="nl">
     <head>
-        <title>Top 10 Highest Temperatures Asia - Hero Cycles Weather Application</title>
-        <?php
-        require("inc/headermodule.php");
-        require("inc/loginrequire.php");
-        ?>
+        <title>HeroCycles</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- <meta http-equiv="refresh" content="3"> -->
     </head>
-    <?php include ("inc/popup.php"); ?>
-    <div id="center_content"><center><body>
-                <h1>Top 10 places with highest temperatures</h1>
-                <table>
-                    <tr><th></th><th>Weather Station</th><th>Country</th><th>Name</th><th>Temperature</th></tr>
-                    <?php include("inc/toptentable.php"); ?>
-                </table>
-        </center></div>
-    <div id="right_sidebar"></div>
-    <div id="footer">
-        <center>
-            <form method="post">
-                <input type="submit" name="downloadxml" id="downloadxml" value="Download XML"/><br/>
-            </form>
+    <body>
+        <div class="container">
             <?php
-            if (array_key_exists('downloadxml', $_POST)) {
-                $dom->save("public/" . $linkpath);
-                $file = "public/" . $linkpath;
-
-                if (file_exists($file)) {
-                    header('Content-Description: File Transfer');
-                    header('Content-Type: application/octet-stream');
-                    header('Content-Disposition: attachment; filename=' . basename($file));
-                    header('Content-Transfer-Encoding: binary');
-                    header('Expires: 0');
-                    header('Cache-Control: must-revalidate');
-                    header('Pragma: public');
-                    header('Content-Length: ' . filesize($file));
-                    ob_clean();
-                    flush();
-                    readfile($file);
-                    exit;
-                }
-                else{
-                    echo "An error has occurred";
-                }
-            }
+            include("inc/header.php");
             ?>
-        </center>
-        <?php
-        require("inc/footermodule.php")
-        ?>
+        </div>
+        <div>
+            <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
+        </div>
+        <div id="delimiter"></div>
+        <div class="container">
+            <div class="delimiter"></div>
+            <div id="content">
+                <center>
+                    <h1>Top 10 places with highest temperatures</h1>
+                    <br>
+                    <table>
+                        <tr><th></th><th>Weather Station</th><th>Country</th><th>Name</th><th>Temperature</th></tr>
+                        <?php include("inc/toptentable.php"); ?>
+                    </table>
+                </center>
+            </div>
+            <center>
+                <form method="post">
+                    <input type="submit" name="downloadxml" id="downloadxml" value="Download XML"/><br/>
+                </form>
+                <?php
+                if (array_key_exists('downloadxml', $_POST)) {
+                    $dom->save("public/" . $linkpath);
+                    $file = "public/" . $linkpath;
+
+                    if (file_exists($file)) {
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/octet-stream');
+                        header('Content-Disposition: attachment; filename=' . basename($file));
+                        header('Content-Transfer-Encoding: binary');
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate');
+                        header('Pragma: public');
+                        header('Content-Length: ' . filesize($file));
+                        ob_clean();
+                        flush();
+                        readfile($file);
+                        exit;
+                    } else {
+                        echo "An error has occurred";
+                    }
+                }
+                ?>
+        </div>
+        <div class="delimiter"></div>
+    <div id="footer">
+        <div class="container">
+            <div class="left">&copy; ITV2A</div>
+        </div>
     </div>
 </body>
 </html>

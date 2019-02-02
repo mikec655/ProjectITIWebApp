@@ -1,24 +1,36 @@
-<html>
+<html lang="nl">
     <head>
-        <title>Rainfall Map Asia - Hero Cycles Weather Application</title>
-        <?php
-        require("inc/headermodule.php");
-        require("inc/loginrequire.php");
-        ?>
+        <title>HeroCycles</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- <meta http-equiv="refresh" content="3"> -->
     </head>
-    <?php include ("inc/popup.php"); ?>
-    <body> 
-        <div id="center_content"><center>
-                <h1>Rainfall Map</h1>
-                <?php include("inc/openmap.php"); ?>
-                <!-- <iframe src="inc/openmap.php" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-            </center>
+    <body>
+        <div class="container">
+            <?php
+            include("inc/header.php");
+            ?>
         </div>
-        <div id="right_sidebar"></div>
+        <div>
+            <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
+        </div>
+        <div id="delimiter"></div>
+        <div class="container">
+            <div class="delimiter"></div>
+            <div id="content col6">
+                <br>
+                <center style="height:70%;">
+                    <h1>Rainfall map Asia</h1>
+                    <br>
+                    <?php include("inc/openmap.php"); ?>
+                </center>
+            </div>
+            <div class="delimiter"></div>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <div class="left">&copy; ITV2A</div>
+            </div>
+        </div>
     </body>
-    <div id="footer">
-        <?php
-        require("inc/footermodule.php")
-        ?>
-    </div>
 </html>

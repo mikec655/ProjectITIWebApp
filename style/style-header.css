@@ -1,0 +1,41 @@
+body {
+    background-color:#f4f4f4;
+}
+
+.box-1 {
+    font-family: "Georgia", Times, serif;
+    border: 0px solid #f4f4f4;
+    border-radius: 4px;
+    padding: 0px;
+    width: 0px;
+}
+
+ul{
+    font-family: "Georgia", Times, serif;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    /* background-color: #292c2f; */
+    background-color:#8B0000;
+}
+
+li {
+    font-family: "Georgia", Times, serif;
+    float:left
+}
+
+li a:hover{
+    font-family: "Georgia", Times, serif;
+    background-color: rgba(255, 0, 0, 0.418);
+}
+
+li a{
+    font-family: "Georgia", Times, serif;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 0px;
+}
+

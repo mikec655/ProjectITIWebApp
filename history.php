@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <link href="style/disclaimer.css" rel="stylesheet" type="text/css"/>
         <?php
             require("inc/headermodule.php");
             require("inc/loginrequire.php");

@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link href="style/style.css" rel="stylesheet" type="text/css"/>
-        <link rel="shortcut icon" href="img/icon.png"/> 
-    <div id="banner">
-        <img src="img/logo.png" width="33%" height="100%">
-    </div>
-    <div id="menu">
-        <b><a href="index.php" class="button">Home</a> | 
-            <a href="toptenheat.php" class="button">Top 10 Temperature Asia</a> | 
-            <a href="rainfall.php" class="button">Rainfall Map Asia</a> |
-            <a href="heatindexgraph.php" class="button">Heatindex India</a> |
-            <a href="history.php" class="button">Historical Data</a>
-        </b>
-    </div>
+<head>
+    <link href="style/style-header.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="img/icon.png"/> 
 </head>
+<body>
+<div class="box-1">
+    <img src="img/logo.png" id="logo-img">
+</div>
+<ul>
+    <li><a href="index.php">Home</a></li>  
+    <li><a href="toptenheat.php">Top 10 Temperature Asia</a></li>  
+    <li><a href="rainfall.php">Rainfall Map Asia</a> </li> 
+    <li><a href="heatindexgraph.php">Heatindex India</a> </li> 
+    <li><a href="history.php">Historical Data</a></li>    
+</ul>
+</body>

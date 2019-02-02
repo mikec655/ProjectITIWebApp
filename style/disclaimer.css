@@ -1,0 +1,38 @@
+.alert {
+	font-family: "Georgia";
+	font-size: 10%;
+    padding: 10px;
+    color: white;
+    margin-bottom: 10px;
+    width:200px;
+    height:500px;
+    margin: left;
+}
+
+.alert.danger {background-color: #8B0000;}
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #8B0000;}
+
+.alerticon {
+    color: white;
+    font-weight: bold;
+    float: left;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.alertclosebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 30px;
+    line-height: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alertclosebtn:hover {
+    color: #f4dc42;
+}

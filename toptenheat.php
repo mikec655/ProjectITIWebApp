@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Top 10 Highest Temperatures Asia - Hero Cycles Weather Application</title>
+        <link href="style/disclaimer.css" rel="stylesheet" type="text/css"/>
         <?php
         require("inc/headermodule.php");
         require("inc/loginrequire.php");

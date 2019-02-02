@@ -19,6 +19,7 @@
         <div class="container">
             <div class="delimiter"></div>
             <div id="content">
+                <div class="col9 grayborder">
                 <center>
                     <h1>Top 10 places with highest temperatures</h1>
                     <br>
@@ -57,6 +58,7 @@
                 }
                 ?>
             </center>
+        </div>
         </div>
         <div class="delimiter"></div>
     <div id="footer">

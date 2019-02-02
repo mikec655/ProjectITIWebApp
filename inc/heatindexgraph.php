@@ -1,41 +1,13 @@
-<html>
-<head>
-    <title>Heat Index India - Hero Cycles Weather Application</title>
-    <?php
-    require("inc/headermodule.php");
-    require("inc/loginrequire.php");
-    ?>
-</head>
-<body>
 
+<canvas id="myChart"></canvas>
 <?php
-include_once("inc/dataReader.php");
-$country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
-?>
-<div class="Form_container" style="position: center">
-    <form action="#" method="post" style="text-align: center">
-        <select name="Station">
-            <?php
-            foreach ($country as $stationX) { ?>
-                <option value="<?= $stationX['stn'] ?>"><?= $stationX['name'] ?></option>
-                <?php
-            } ?>
-        </select>
-        <input type="submit" name="submit" value="Get Selected Values"/>
-    </form>
-    <?php
-    if (isset($_POST['submit'])) {
-        $selected_val = $_POST['Station'];  // Storing Selected Value In Variable
+include("dataReader.php");
+    if (isset($_GET['station'])) {
+        $selected_val = $_GET['station'];  // Storing Selected Value In Variable
         $station_number = $selected_val;
-        $selected_val = readDataOfStation("2019-01-21", $selected_val, "11100011000", 60, FALSE);  // Retrieving Selected Value
+        $selected_val = readDataOfStation(date("Y-m-d"), $selected_val, "11100011000", 60, FALSE);  // Retrieving Selected Value
     }
-    ?>
-</div>
-
-
-<div class="chart_container" style="position: relative; height: auto; width: 100%">
-    <canvas id="myChart"></canvas>
-</div>
+?>
 
 <script src="lib/Chart.bundle.min.js"></script>
 <script>
@@ -46,7 +18,7 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
                 labels: [
                     <?php $rtrn_array = array();
                     foreach ($selected_val['time'] as $time) {
-                        $rtrn_array[] = '"' . formatSeconds($time) .
+                        $rtrn_array[] = '"' . date("H:i", $time / 1000) .
                             '"';
                     }
                     echo implode(",", $rtrn_array);?>
@@ -123,5 +95,3 @@ $country = readDataOfCountry("2019-01-21", "INDIA", "110000000000", 60, FALSE);
             60000 //elke minuut update de chart
         )
 </script>
-</body>
-</html>

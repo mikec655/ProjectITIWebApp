@@ -17,6 +17,9 @@
         $(document).ready(function() {
             $("#center_content").load("inc/toptentable.php");
         });
+        setInterval(function() {
+            $("#center_content").load("inc/toptentable.php");
+        }, 60000);
     </script>
         
     <div id="right_sidebar"></div>

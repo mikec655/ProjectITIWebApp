@@ -9,25 +9,30 @@
 </head>
 <body>
 
-
+<center>
 <select id="station_select">
 
 </select>
 
-<div class="chart_container" id="chart_container" style="position: relative; height: auto; width: 100%">
+<div class="chart_container" id="chart_container" style="position: relative; height: auto; width: 80%">
     
 </div>
+</center>
 
 <script>
-        $(document).ready(function() {
-            $("#station_select").load("inc/indiaselectbox.php")
-            var station = $("#station_select").val();
-            $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
-        });
-        $("#station_select").change(function() {
-            var station = $("#station_select").val();
-            $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
-        })
+    $(document).ready(function() {
+        $("#station_select").load("inc/indiaselectbox.php")
+        var station = $("#station_select").val();
+        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+    });
+    $("#station_select").change(function() {
+        var station = $("#station_select").val();
+        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+    })
+    setInterval(function () {
+        var station = $("#station_select").val();
+        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+    }, 60000);
 </script>
 
 </body>

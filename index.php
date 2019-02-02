@@ -11,10 +11,12 @@
             <?php
             include("inc/header.php");
             ?>
-            
         </div>
         <div>
             <img src="img/headerHC.jpg" alt="HeroCycles Banner" class="headerimg"/>
+        </div>
+        <div>    
+            <?php require("inc/loginrequire.php"); ?>
         </div>
         <div id="delimiter"></div>
         <div class="container">
@@ -22,7 +24,7 @@
             <div id="content">
                 <div class="col3 grayborder">
                     <h2>Preview top10</h2>
-                    <p>preview top10</p>
+                    <iframe src=inc/toptentable.php""></iframe>
                 </div>
                 <div class="col3 grayborder">
                     <h2>Preview Rainfall</h2>

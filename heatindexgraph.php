@@ -15,6 +15,9 @@
         <div>
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
+        <div>    
+            <?php require("inc/loginrequire.php"); ?>
+        </div>
         <div id="delimiter"></div>
         <div class="container">
             <?php
@@ -52,26 +55,26 @@
                     type: 'line',
                     data: {
                         labels: [
-                                <?php
-                                $rtrn_array = array();
-                                foreach ($selected_val['time'] as $time) {
-                                    $rtrn_array[] = '"' . formatSeconds($time) .
-                                            '"';
-                                }
-                                echo implode(",", $rtrn_array);
-                                ?>
-                                                        ],
-                                                        datasets: [{
-                                                                label: 'Weather data of India/station ' + <?php echo $station_number ?>,
-                                                                data: [
-                                <?php
-                                $rtrn_array = array();
-                                $counter = 0;
-                                foreach ($selected_val['wdsp'] as $temp) {
-                                    $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter], $temp), 2) . '"';
-                                }
-                                echo implode(",", $rtrn_array)
-                                ?>],
+<?php
+$rtrn_array = array();
+foreach ($selected_val['time'] as $time) {
+    $rtrn_array[] = '"' . formatSeconds($time) .
+            '"';
+}
+echo implode(",", $rtrn_array);
+?>
+                        ],
+                        datasets: [{
+                                label: 'Weather data of India/station ' + <?php echo $station_number ?>,
+                                data: [
+<?php
+$rtrn_array = array();
+$counter = 0;
+foreach ($selected_val['wdsp'] as $temp) {
+    $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter], $temp), 2) . '"';
+}
+echo implode(",", $rtrn_array)
+?>],
                                 backgroundColor: [
                                     'rgba(57, 106, 203, 0.5)'
                                 ],
@@ -106,24 +109,24 @@
                         setInterval(function updateChart() {
                             myChart.data.datasets[0].data =
                                     [
-                                <?php
-                                $rtrn_array = array();
-                                $counter = 0;
-                                foreach ($selected_val['wdsp'] as $temp) {
+<?php
+$rtrn_array = array();
+$counter = 0;
+foreach ($selected_val['wdsp'] as $temp) {
 
-                                    $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter], $temp), 2) . '"';
-                                }
-                                echo implode(",", $rtrn_array)
-                                ?>];
-                                                            myChart.data.labels = [
-                                <?php
-                                $rtrn_array = array();
-                                foreach ($selected_val['time'] as $time) {
-                                    $rtrn_array[] = '"' . formatSeconds($time) .
-                                            '"';
-                                }
-                                echo implode(",", $rtrn_array);
-                                ?>
+    $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter], $temp), 2) . '"';
+}
+echo implode(",", $rtrn_array)
+?>];
+                            myChart.data.labels = [
+<?php
+$rtrn_array = array();
+foreach ($selected_val['time'] as $time) {
+    $rtrn_array[] = '"' . formatSeconds($time) .
+            '"';
+}
+echo implode(",", $rtrn_array);
+?>
                             ];
 
 
@@ -137,7 +140,7 @@
         </div>
         <div id="footer">
             <div class="container">
-                <div class="left"><?php include ("inc/footer.php")?></div>
+                <div class="left"><?php include ("inc/footer.php") ?></div>
             </div>
         </div>
     </body>

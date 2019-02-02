@@ -14,6 +14,9 @@
         <div>
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
+        <div>    
+            <?php require("inc/loginrequire.php"); ?>
+        </div>
         <div id="delimiter"></div>
         <div class="container">
             <div class="delimiter"></div>
@@ -29,7 +32,7 @@
         </div>
         <div id="footer">
             <div class="container">
-                <div class="left"><?php include ("inc/footer.php")?></div>
+                <div class="left"><?php include ("inc/footer.php") ?></div>
             </div>
         </div>
     </body>

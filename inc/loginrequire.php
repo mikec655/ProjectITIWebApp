@@ -14,7 +14,6 @@
         if (!USERNAME or isset($_GET['logout']))
             include('loginscript.php');
 
-// everything below will show after correct login 
         ?>
     </center>
 </html>

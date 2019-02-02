@@ -16,7 +16,6 @@
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
         <div class="container">
-
             <div id="content">
                 <div class="col9 grayborder">
                     <center>

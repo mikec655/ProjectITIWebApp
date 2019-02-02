@@ -27,6 +27,7 @@
                         <?php include("inc/toptentable.php"); ?>
                     </table>
                 </center>
+                <br>
             </div>
             <center>
                 <form method="post">
@@ -55,11 +56,12 @@
                     }
                 }
                 ?>
+            </center>
         </div>
         <div class="delimiter"></div>
     <div id="footer">
         <div class="container">
-            <div class="left">&copy; ITV2A</div>
+            <div class="left"><?php include ("inc/footer.php")?></div>
         </div>
     </div>
 </body>

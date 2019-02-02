@@ -11,6 +11,7 @@
             <?php
             include("inc/header.php");
             ?>
+            
         </div>
         <div>
             <img src="img/headerHC.jpg" alt="HeroCycles Banner" class="headerimg"/>
@@ -40,7 +41,7 @@
         </div>
         <div id="footer">
             <div class="container">
-                <div class="left">&copy; ITV2A</div>
+                <div class="left"><?php include ("inc/footer.php")?></div>
             </div>
         </div>
     </body>

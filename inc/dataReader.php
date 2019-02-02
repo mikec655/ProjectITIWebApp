@@ -2,7 +2,7 @@
 
 function readDataOfStation($date, $station, $needed, $frequency, $last) {
 
-    $filePath = "testdata/" . $date . "/" . $station . ".dat";
+    $filePath = "../testdata/" . $date . "/" . $station . ".dat";
     if (file_exists($filePath)) {
         if (!$fp = fopen($filePath, 'rb'))
             return -1;
@@ -57,7 +57,7 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
 // echo "</pre>";
 
 function readDataOfCountry($date, $country, $needed, $frequency, $last) {
-    if (!$fp = fopen("testdata/stations.csv", 'r'))
+    if (!$fp = fopen("../testdata/stations.csv", 'r'))
         return 0;
     $stations = array();
 

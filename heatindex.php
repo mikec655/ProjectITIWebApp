@@ -26,15 +26,23 @@
             <div id="content">
                 <div class="col9 grayborder" id="content_border">
                     <center>
-                        <img src="img/load.gif" height="200px" width="200px" style="margin: 100px">
+                    <select id="station_select"></select>
+                    <div class="chart_container" id="chart_container" style="position: relative; height: auto; width: 80%"></div>
                     </center>
                 </div>
                 <script>
                     $(document).ready(function() {
-                        $("#content_border").load("inc/toptentable.php");
+                        $("#station_select").load("inc/indiaselectbox.php")
+                        var station = $("#station_select").val();
+                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
                     });
-                    setInterval(function() {
-                        $("#content_border").load("inc/toptentable.php");
+                    $("#station_select").change(function() {
+                        var station = $("#station_select").val();
+                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+                    })
+                    setInterval(function () {
+                        var station = $("#station_select").val();
+                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
                     }, 60000);
                 </script>
                 <center>

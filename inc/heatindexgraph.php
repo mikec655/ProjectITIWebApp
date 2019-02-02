@@ -1,44 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>HeroCycles</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- <meta http-equiv="refresh" content="3"> -->
-    </head>
-    <body>
-        <div class="container">
-            <?php
-            include("inc/header.php");
-            ?>
-        </div>
-        <div>
-            <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
-        </div>
-        <div class="login">
-                <?php require("inc/loginrequire.php"); ?>
-        </div>
-        <div id="delimiter"></div>
-        <div class="container">
-            <?php
-            include_once("inc/dataReader.php");
-            $country = readDataOfCountry("2019-02-02", "INDIA", "110000000000", 60, FALSE);
-            ?>
-            <div class="Form_container" style="position: center">
-                <form action="#" method="post" style="text-align: center">
-                    <select name="Station">
-                        <?php foreach ($country as $stationX) { ?>
-                            <option value="<?= $stationX['stn'] ?>"><?= $stationX['name'] ?></option>
-                        <?php }
-                        ?>
-                    </select>
-                    <input type="submit" name="submit" value="Get Selected Values"/>
-                </form>
-                <?php
-                if (isset($_POST['submit'])) {
-                    $selected_val = $_POST['Station'];  // Storing Selected Value In Variable
-                    $station_number = $selected_val;
-                    $selected_val = readDataOfStation("2019-01-21", $selected_val, "11100011000", 60, FALSE);  // Retrieving Selected Value
+
+<canvas id="myChart"></canvas>
+<?php
+include("dataReader.php");
+    if (isset($_GET['station'])) {
+        $selected_val = $_GET['station'];  // Storing Selected Value In Variable
+        $station_number = $selected_val;
+        $selected_val = readDataOfStation(date("Y-m-d"), $selected_val, "11100011000", 60, FALSE);  // Retrieving Selected Value
+    }
+?>
+
+<script src="lib/Chart.bundle.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    <?php $rtrn_array = array();
+                    foreach ($selected_val['time'] as $time) {
+                        $rtrn_array[] = '"' . date("H:i", $time / 1000) .
+                            '"';
+                    }
+                    echo implode(",", $rtrn_array);?>
+                ],
+                datasets: [{
+                    label: 'Weather data of India/station ' + <?php echo $station_number?>,
+                    data: [
+                        <?php
+                        $rtrn_array = array();
+                        $counter = 0;
+                        foreach ($selected_val['wdsp'] as $temp) {
+                            $rtrn_array[] = '"' . floorp(calculateHeatIndex($selected_val['temp'][$counter], $temp), 2) . '"';
+                        }
+                        echo implode(",", $rtrn_array)
+                        ?>],
+                    backgroundColor: [
+                        'rgba(57, 106, 203, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 0, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
                 }
                 ?>
             </div>
@@ -128,20 +139,8 @@ foreach ($selected_val['time'] as $time) {
 echo implode(",", $rtrn_array);
 ?>
                             ];
-
-
-                            myChart.update();
-
-                        }
-                        ,
-                                60000 //elke minuut update de chart
-                                )
-            </script>
-        </div>
-        <div id="footer">
-            <div class="container">
-                <div class="left"><?php include ("inc/footer.php") ?></div>
-            </div>
-        </div>
-    </body>
-</html>
+            }
+            ,
+            60000 //elke minuut update de chart
+        )
+</script>

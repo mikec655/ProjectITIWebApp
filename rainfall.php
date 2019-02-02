@@ -3,6 +3,7 @@
         <title>HeroCycles</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- <meta http-equiv="refresh" content="3"> -->
     </head>
     <body>
@@ -20,14 +21,19 @@
         <div id="delimiter"></div>
         <div class="container">
             <div class="delimiter"></div>
-            <div id="content col6">
-                <br>
-                <center style="height:70%;">
-                    <h1>Rainfall map Asia</h1>
-                    <br>
-                    <?php include("inc/openmap.php"); ?>
+            <div class="content" id="content">
+                <center>
+                    <img src="img/load.gif" height="200px" width="200px" style="margin: 100px">
                 </center>
             </div>
+            <script>
+                $(document).ready(function() {
+                    $("#content").load("inc/openmap.php");
+                });
+                setInterval(function() {
+                    $("#content").load("inc/openmap.php");
+                }, 60000);
+            </script>
             <div class="delimiter"></div>
         </div>
         <div id="footer">

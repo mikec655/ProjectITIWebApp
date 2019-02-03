@@ -1,6 +1,7 @@
 <html lang="nl">
     <head>
-        <title>HeroCycles</title>
+        <title>Rainfall Map Asia - HeroCycles Weather App</title>
+        <link rel="icon" href="img/icon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

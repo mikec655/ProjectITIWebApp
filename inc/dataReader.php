@@ -2,14 +2,13 @@
 
 function readDataOfStation($date, $station, $needed, $frequency, $last) {
 
-    $filePath = "../testdata/" . $date . "/" . $station . ".dat";
+    $filePath = "../public/data/" . $date . "/" . $station . ".dat";
     if (file_exists($filePath)) {
         if (!$fp = fopen($filePath, 'rb'))
             return -1;
     } else {
         return -1;
     }
-
 
     $result = array();
 
@@ -27,14 +26,11 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
         fseek($fp, $byteIndex);
     }
 
-
     $length = 43;
     while (true) {
         if (!$data = fread($fp, $length))
             break;
         $array = unpack("Ntime/Gtemp/Gdewp/Gstp/Gslp/Gvisib/Gwdsp/Gprcp/Gsndp/Cfrshtt/Gcldc/nwnddir", $data);
-
-        // if($array["time"] % ($frequency * 1000) != 0) continue;
 
         $i = 0;
         foreach ($array as $key => $value) {
@@ -51,13 +47,8 @@ function readDataOfStation($date, $station, $needed, $frequency, $last) {
     return $result;
 }
 
-// $data = readDataOfStation("2019-01-21", 10010, "100000000000", 60, FALSE);
-// echo "<pre>";
-// print_r($data);
-// echo "</pre>";
-
 function readDataOfCountry($date, $country, $needed, $frequency, $last) {
-    if (!$fp = fopen("../testdata/stations.csv", 'r'))
+    if (!$fp = fopen("../public/data/stations.csv", 'r'))
         return 0;
     $stations = array();
 
@@ -98,12 +89,9 @@ function floorp($val, $precision) {
 }
 
 function calculateHeatIndex($currentTemp, $currentWindspeed) {
-
     $awnser = 33 + ($currentTemp - 33) * (0.474 + 0.454 * sqrt($currentWindspeed) - 0.0454 * $currentWindspeed);
     return $awnser;
 }
-
-
 
 function readDataOfAsia($date, $needed, $frequency, $last) {
     $stationnetje = array();
@@ -114,12 +102,11 @@ function readDataOfAsia($date, $needed, $frequency, $last) {
         $data2[0] = $station[0];
         $data2[1] = $station[1];
         $data2[2] = $station[2];
-        $data2[3] = $data;
+        $data2[3] = $station[3];
+        $data2[4] = $station[4];
+        $data2[5] = $data;
         array_push($stationnetje, $data2);
-        
     }
-
     return $stationnetje;
-    
 }
 ?>

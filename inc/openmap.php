@@ -5,65 +5,12 @@
 <script src="lib/OpenLayers.js"></script>
 <script>
     <?php
-        $countries = array(
-            "AFGHANISTAN",
-            "ARMENIA",
-            "AZERBAIJAN",
-            "BAHRAIN",
-            "BANGLADESH",
-            "BHUTAN",
-            "BRUNEI",
-            "CAMBODIA",
-            "CHINA",
-            "CYPRUS",
-            "GEORGIA",
-            "INDIA",
-            "INDONESIA",
-            "IRAN",
-            "IRAQ",
-            "ISRAEL",
-            "JAPAN",
-            "JORDAN",
-            "KAZAKHSTAN",
-            "KUWAIT",
-            "KYRGYZSTAN",
-            "LAOS",
-            "LEBANON",
-            "MALAYSIA",
-            "MALDIVES",
-            "MONGOLIA",
-            "MYANMAR",
-            "NEPAL",
-            "NORTH KOREA",
-            "OMAN",
-            "PAKISTAN",
-            "PALESTINE",
-            "PHILIPPINES",
-            "QATAR",
-            "RUSSIA",
-            "SAUDI ARABIA",
-            "SINGAPORE",
-            "SOUTH KOREA",
-            "SRI LANKA",
-            "SYRIA",
-            "TAIWAN",
-            "TAJIKISTAN",
-            "THAILAND",
-            "TURKEY",
-            "TURKMENISTAN",
-            "UNITED ARAB EMIRATES",
-            "UZBEKISTAN",
-            "VIETNAM",
-            "YEMEN"
-        );
-        include("dataReader.php");
+    include("dataReader.php");
         echo "var stations = [";
-        foreach($countries as $country){
-            $stations = readDataOfCountry(date("Y-m-d"), $country, "000000010000", 1, TRUE);
-            foreach($stations as $station){
-                if ($station['data']['prcp'][0] >= 1){
-                    echo "[" . $station['stn'] . ", '" . $station['name'] . "', '" . $country . "', " . $station['lat'] . "," . $station['long'] . "," . $station['data']['prcp'][0] . "],";
-                }
+        $stations = readDataOfAsia(date("Y-m-d"), "000000010000", 1, TRUE);
+        foreach($stations as $station){
+            if ($station[5]['prcp'][0] >= 1){
+                echo "[" . $station[0] . ", '" . $station[1] . "', '" . $station[2] . "', " . $station[3] . "," . $station[4] . "," . $station[5]['prcp'][0] . "],";
             }
         }
         echo "[]];";
@@ -97,7 +44,11 @@
     }   
 
     function init(){
-        map = new OpenLayers.Map('mapdiv');
+        var options = {
+            center: new OpenLayers.LonLat(8688138.383006, 4461476.466949)
+        };
+
+        map = new OpenLayers.Map('mapdiv', options);
         mappingLayer = new OpenLayers.Layer.OSM("Simple OSM Map");
         map.addLayer(mappingLayer);
 

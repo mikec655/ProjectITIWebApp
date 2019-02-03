@@ -27,6 +27,7 @@
             <div id="content">
                 <div class="col9 grayborder" id="content_border">
                     <center>
+                    <h1>Heat Index of Station:</h1>
                     <select id="station_select"></select>
                     <div class="chart_container" id="chart_container" style="position: relative; height: auto; width: 80%"></div>
                     </center>
@@ -34,8 +35,7 @@
                 <script>
                     $(document).ready(function() {
                         $("#station_select").load("inc/indiaselectbox.php")
-                        var station = $("#station_select").val();
-                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+                        $("#chart_container").load("inc/heatindexgraph.php?station=420710");
                     });
                     $("#station_select").change(function() {
                         var station = $("#station_select").val();

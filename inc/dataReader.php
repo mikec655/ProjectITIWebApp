@@ -70,24 +70,6 @@ function readDataOfCountry($date, $country, $needed, $frequency, $last) {
     return $stations;
 }
 
-function formatSeconds($milliseconds) {
-    $seconds = floor($milliseconds / 1000);
-    $minutes = floor($seconds / 60);
-    $hours = floor($minutes / 60);
-    $milliseconds = $milliseconds % 1000;
-    $seconds = $seconds % 60;
-    $minutes = $minutes % 60;
-
-    $format = '%u:%02u';
-    $time = sprintf($format, $hours, $minutes, $seconds, $milliseconds);
-    return rtrim($time, '0');
-}
-
-function floorp($val, $precision) {
-    $mult = pow(10, $precision); // Can be cached in lookup table
-    return floor($val * $mult) / $mult;
-}
-
 function calculateHeatIndex($currentTemp, $currentWindspeed) {
     $awnser = 33 + ($currentTemp - 33) * (0.474 + 0.454 * sqrt($currentWindspeed) - 0.0454 * $currentWindspeed);
     return $awnser;

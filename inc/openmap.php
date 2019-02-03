@@ -31,7 +31,7 @@
                                 null,
                                 selectedFeature.attributes.stn + ": " + selectedFeature.attributes.name + 
                                 ", Rainfall: " + Math.round(selectedFeature.attributes.rainfall, 2) + "mm " +
-                                "<a href='history.php?date=" + curday() + "&station=" + selectedFeature.attributes.stn + "' class='blacklink'>More info</a>",
+                                "<a href='history.php?date=" + curday() + "&station=" + selectedFeature.attributes.stn + "&name=" + selectedFeature.attributes.name + "&country=" + selectedFeature.attributes.country + "' class='blacklink'>More info</a>",
                                 null, true);
         feature.popup = popup;
         map.addPopup(popup);
@@ -71,7 +71,7 @@
         var lon = value[4];
         var lonLat = new OpenLayers.Geometry.Point( lon, lat);
         lonLat.transform("EPSG:4326", map.getProjectionObject());
-        var feature = new OpenLayers.Feature.Vector(lonLat, {stn: value[0], name: value[1], rainfall: value[5]}, style);
+        var feature = new OpenLayers.Feature.Vector(lonLat, {stn: value[0], name: value[1], country: value[2], rainfall: value[5]}, style);
         vectorLayer.addFeatures(feature);
     }
 

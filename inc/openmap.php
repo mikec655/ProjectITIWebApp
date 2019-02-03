@@ -97,7 +97,13 @@
     }   
 
     function init(){
-        map = new OpenLayers.Map('mapdiv');
+        var options = {
+            //projection: "EPSG:3857",
+            //maxExtent: new OpenLayers.Bounds(-200000, -200000, 200000, 200000),
+            center: new OpenLayers.LonLat(8688138.383006, 4461476.466949)
+        };
+
+        map = new OpenLayers.Map('mapdiv', options);
         mappingLayer = new OpenLayers.Layer.OSM("Simple OSM Map");
         map.addLayer(mappingLayer);
 

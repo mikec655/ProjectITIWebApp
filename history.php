@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
     <head>
-        <title>Hero Cycles</title>
+        <title>Historical Data - HeroCycles Weather App</title>
+        <link rel="icon" href="img/icon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- <meta http-equiv="refresh" content="3"> -->

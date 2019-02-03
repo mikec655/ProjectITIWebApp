@@ -26,7 +26,6 @@
             <div id="content">
                 <div class="col3 grayborder">
                     <h2>Preview top10</h2>
-                    <iframe src=inc/toptentable.php""></iframe>
                 </div>
                 <div class="col3 grayborder">
                     <h2>Preview Rainfall</h2>

@@ -26,18 +26,33 @@
             <div class="delimiter"></div>
             <div id="content">
                 <div class="col3 grayborder">
-                    <h2>Preview top10</h2>
-                </div>
-                <div class="col3 grayborder">
-                    <h2>Preview Rainfall</h2>
-                    <p>
-                        Preview rainfall. 
+                    <h2>Top 10 heat</h2>
+                    <br><br>
+                    <p style="color: midnightblue">
+                        The first page in the menu will show the top 10 warmest stations in Asia. 
+                        These stations are sorted by temperature in an ascending order starting with the station that measured that warmest temperature.
+                        <br><br><br><br><br>
+                        <a href="toptenheat.php">Check out the top 10 warmest stations.</a>
                     </p>
                 </div>
                 <div class="col3 grayborder">
-                    <h2>Preview heatindex</h2>
-                    <p>
-                        Preview heatindex
+                    <h2>Rainfall map</h2>
+                    <br><br>
+                    <p style="color: midnightblue">
+                        The second page in the menu will show an interactive map.
+                        The map has several stations marked by raindrops where the rainfall is more than 1 millimeter.
+                        <br><br><br><br><br><br>
+                        <a href="rainfall.php">Check out the interactive map</a>
+                    </p>
+                </div>
+                <div class="col3 grayborder">
+                    <h2>Heatindex</h2>
+                    <br><br>
+                    <p style="color: midnightblue">
+                        The third page in the menu will show a graph of the heatindex per station in India.
+                        The graph will show the corrected temperature measured from the last hour.
+                        <br><br><br><br><br><br>
+                        <a href="toptenheat.php">Check out the corrected temperature.</a>
                     </p>
                 </div>
             </div>

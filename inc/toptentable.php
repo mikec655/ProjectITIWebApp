@@ -7,7 +7,7 @@ $highest_temperatures = array();
 
 $data = readDataOfAsia(date("Y-m-d"), "110000000000", 60, FALSE);
 foreach ($data as $station) {
-    $highest_temperatures[$station[0]] = array(max($station[3]['temp']), $station[2], $station[1]);
+    $highest_temperatures[$station[0]] = array(max($station[5]['temp']), $station[2], $station[1]);
 }
 
 arsort($highest_temperatures);

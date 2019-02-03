@@ -30,7 +30,7 @@ if (isset($_POST['username'])) {
     }
 }
 
-echo '<form method="post" action="' . SELF . '">
+echo '<form class="login-box" method="post" action="' . SELF . '">
   <h2>Login in order to unlock the functionality</h2>
   <p><label for="username">Username</label> <input type="text" id="username" name="username" value="" /></p>
   <p><label for="password">Password</label> <input type="password" id="password" name="password" value="" /></p>

@@ -67,10 +67,8 @@
                         </div>
                         <br>
                         <br>
-                        <table>
                             <?php require("inc/history_table.php"); ?>
                             <?php require("inc/savexmlmodule.php"); ?>
-                        </table>
                     </center>
                 </div>
             </div>

@@ -250,6 +250,8 @@ label{
 table {
     border: 1px solid #E42431;
     background-color: white;
+    width: 80%;
+    height: auto;
 }
 
 th {

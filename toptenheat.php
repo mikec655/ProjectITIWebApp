@@ -58,7 +58,7 @@
                 }
 
                 $("#btn").click(function () {
-                    window.location.href = "../public/Top 10 of " + curday() + ".xml";
+                    window.location.href = "public/Top 10 of " + curday() + ".xml";
                 });
             </script>
 

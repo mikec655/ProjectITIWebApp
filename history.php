@@ -6,8 +6,9 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- <meta http-equiv="refresh" content="3"> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     </head>
-    <body onload="startTime()">
+    <body>
         <div class="container">
             <?php include("inc/header.php"); ?>
             <?php include ("inc/stationsasia.php"); ?>
@@ -22,54 +23,91 @@
         <div class="container">
             <div id="content">
                 <div class="col9 grayborder">
-                    <center>
-                        <?php
-                        $timezone = "Asia/Colombo";
-                        date_default_timezone_set($timezone);
-                        $today = date("Y-m-d");
-                        $dateMin28 = new DateTime($today);
-                        $dateMin28 = $dateMin28->sub(new DateInterval('P28D'));
-                        $dateMin28 = $dateMin28->format('Y-m-d');
-                        $name = '';
-                        $country = '';
-                        if (isset($_GET['station'])) {
-                            foreach ($stationsasia as $stations) {
-                                if ($stations[0] == $_GET['station']) {
-                                    $name = $stations[1];
-                                    $country = $stations[2];
-                                }
-                            }
+                <center>  
+                <?php
+                    // $timezone = "Asia/Colombo";
+                    // date_default_timezone_set($timezone);
+                    $today = date("Y-m-d");
+                    $dateMin28 = new DateTime($today);
+                    $dateMin28 = $dateMin28->sub(new DateInterval('P28D'));
+                    $dateMin28 = $dateMin28->format('Y-m-d');
+                ?>
+                <div>
+                <h1 id='h1title'></h1>
+                <h3 id='h3title'></h3>
+                <select name="country" id="country" class="iscountry">
+                    <?php 
+                    foreach ($countriesasia as $countries) {
+                        echo "<option value='$countries'>$countries</option>";
+                    }
+                    ?>
+                </select>
+                <select name="station" id="station" class="iscountry">
+                    <?php foreach ($myArray as $stat): ?>
+                    <?php echo "<option value=\"$stat\">$stat</option>"; ?>
+                    <?php endforeach; ?>
+                </select>
+                <input type="date" name="date" id="date"
+                    value=<?php if(isset($_GET['date'])) echo $_GET['date']; else echo $today; ?>
+                    min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>        
+                <div id="cheat">
+                </div>
+                <table id="table">
+                </table>
+                </center>
+                <script>
+                    $(document).ready(function(){
+                        console.log(window.location.search.substr(1));
+                        if (window.location.search.substr(1) == ""){
+                            country = "INDIA";
+                            station = 420710;
+                            stationName = "AMRITSAR";
+                            
+                        } else {
+                            var urlParams = new URLSearchParams(window.location.search);
+                            station = urlParams.getAll('station');
+                            stationName = urlParams.getAll('name');
+                            country = urlParams.getAll('country');
                         }
-                        ?>
-                        <div>
-                            <h1><?php if (isset($_GET['station'])) echo "Weather Data History of Station " . $_GET['station'] . ": " ?></h1>
-                            <h2><?php
-                                if ($country !== null) {
-                                    echo $country . "  " . $name;
-                                } else {
-                                    echo 'Country' . $_GET['station'] . 'not in Asia';
-                                }
-                                ?></h2>   
-                            <form action= "history.php" method="get">
-                                <select name="country">
-                                    <?php foreach ($countriesasia as $countries): ?>
-                                        <?php echo "<option value=\"$countries\" >$countries</option>"; ?>
-                                    <?php endforeach; ?>
-                                </select>
-
-                                <b>Stations</b><input type="text" value="<?php if (isset($_GET['station'])) echo $_GET['station']; ?>" name="station">
-                                <b>Date</b>
-                                <input type="date" name="date"value=<?php if (isset($_GET['date'])) echo $_GET['date'];
-                                    else echo $today; ?>min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>
-                                <input type="submit">
-                                <input type="submit" id = 'action' name = 'action' value = 'Download XML'>
-                            </form>
-                        </div>
-                        <br>
-                        <br>
-                            <?php require("inc/history_table.php"); ?>
-                            <?php require("inc/savexmlmodule.php"); ?>
-                    </center>
+                        $("#country").val(country);
+                        $("#station").load("inc/stationbox.php?country=" + country);
+                        date = $("#date").val();
+                        $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                        $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                        $("#h1title").text("Weather Data on of Station:");
+                        $("#h3title").text(stationName + ", " + country);
+                    });
+                    $("#country").ready(function() {
+                        
+                    })
+                $("#country").change(function() {
+                    country = $("#country").val();
+                    date = $("#date").val();
+                    station = $("#station").val();
+                    action = $("#action").val();
+                    $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
+                
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
+                $("#h1id").text(country);
+                });
+                $("#station").change(function() {
+                    date = $("#date").val();
+                    station = $("#station").val();
+                $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
+                });
+                $("#date").change(function() {
+                    country = $("#country").val();
+                    date = $("#date").val();
+                    station = $("#station").val();
+                    action = $("#action").val();
+                $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
+                });
+            </script>
                 </div>
             </div>
         </div>

@@ -1,5 +1,4 @@
 <?php
-echo $_GET['date'];
 if(isset($_GET['station']) and isset($_GET['date'])){
         include("dataReader.php");
         $station = readDataOfStation($_GET['date'], $_GET['station'], "110000010000", 60, FALSE);

@@ -1,5 +1,10 @@
 <?php
-    if(isset($_GET['action']) and isset($_GET['station']) and isset($_GET['date'])){
+if(isset($_GET['station']) and isset($_GET['date'])){
+    include("dataReader.php");
+    $station = readDataOfStation($_GET['date'], $_GET['station'], "110000010000", 60, FALSE);
+    if ($station == -1){
+        echo "Unknown Station or Invalid Date";
+    } else {
         $dom = new DOMDocument();
         $dom->encoding = 'utf-8';
         $dom->xmlVersion = '1.0';
@@ -9,8 +14,9 @@
         $time = date("H:i", $station['time'][$i] / 1000);
         $temp = round($station['temp'][$i], 1);
         $prcp = round($station['prcp'][$i], 2);
-    
-        $xml_file_name = 'public/'. $_GET['station'] . '.xml';
+        
+        $downloadpath = 'xml/'. $_GET['station'] . '.xml';
+        $xml_file_name = '../xml/'. $_GET['station'] . '.xml';
         $root = $dom->createElement('Station');
         $time_node = $dom->createElement('Time');
         $attr_time_id = new DOMAttr('Time', date("H:i", $station['time'][$i] / 1000));
@@ -25,7 +31,8 @@
         $dom->appendChild($root);
         }
     $dom->save($xml_file_name);
-    echo '<a href="' . $xml_file_name .'" download>Click here to download</a>';   
+    echo '<a href="' . $downloadpath .'" download>Click here to download</a>';   
+    }
 }
 
    

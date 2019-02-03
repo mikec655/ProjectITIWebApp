@@ -13,65 +13,61 @@
             include("inc/header.php");
             ?>
         </div>
-        </div>
-        <div>
-            <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
-        </div>
-        <div class="login">
-                <?php require("inc/loginrequire.php"); ?>
-        </div>
-        <div id="delimiter"></div>
-        <div class="container">
-            <div class="delimiter"></div>
-            <div id="content">
-                <div class="col9 grayborder" id="content_border">
-                    <center>
-                        <img src="img/load.gif" height="200px" width="200px" style="margin: 100px">
-                    </center>
-                </div>
-                <script>
-                    $(document).ready(function() {
-                        $("#content_border").load("inc/toptentable.php");
-                    });
-                    setInterval(function() {
-                        $("#content_border").load("inc/toptentable.php");
-                    }, 60000);
-                </script>
+    </div>
+    <div>
+        <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
+    </div>
+    <div class="login">
+        <?php require("inc/loginrequire.php"); ?>
+    </div>
+    <div id="delimiter"></div>
+    <div class="container">
+        <div class="delimiter"></div>
+        <div id="content">
+            <div class="col9 grayborder" id="content_border">
                 <center>
-                    <form method="post">
-                        <input type="submit" name="downloadxml" id="downloadxml" value="Download XML"/><br/>
-                    </form>
-                    <?php
-                    if (array_key_exists('downloadxml', $_POST)) {
-                        $dom->save("public/" . $linkpath);
-                        $file = "public/" . $linkpath;
-
-                        if (file_exists($file)) {
-                            header('Content-Description: File Transfer');
-                            header('Content-Type: application/octet-stream');
-                            header('Content-Disposition: attachment; filename=' . basename($file));
-                            header('Content-Transfer-Encoding: binary');
-                            header('Expires: 0');
-                            header('Cache-Control: must-revalidate');
-                            header('Pragma: public');
-                            header('Content-Length: ' . filesize($file));
-                            ob_clean();
-                            flush();
-                            readfile($file);
-                            exit;
-                        } else {
-                            echo "An error has occurred";
-                        }
-                    }
-                    ?>
+                    <img src="img/load.gif" height="200px" width="200px" style="margin: 100px">
                 </center>
             </div>
+            <script>
+                $(document).ready(function () {
+                    $("#content_border").load("inc/toptentable.php");
+                    $(".delimiter").load("inc/toptenxml.php");
+                });
+                setInterval(function () {
+                    $("#content_border").load("inc/toptentable.php");
+                    $(".delimiter").load("inc/toptenxml.php");
+                }, 60000);
+            </script>
+            <center>
+                <button id="btn">Download</button>  
+            </center>
+            <script>
+                function curday() {
+                    today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth() + 1;
+                    var yyyy = today.getFullYear();
+
+                    if (dd < 10)
+                        dd = '0' + dd;
+                    if (mm < 10)
+                        mm = '0' + mm;
+                    return (yyyy + "-" + mm + "-" + dd);
+                }
+
+                $("#btn").click(function () {
+                    window.location.href = "public/Top 10 of " + curday() + ".xml";
+                });
+            </script>
+
         </div>
-        <div class="delimiter"></div>
-        <div id="footer">
-            <div class="container">
-                <div class="left"><?php include ("inc/footer.php") ?></div>
-            </div>
+    </div>
+    <div class="delimiter"></div>
+    <div id="footer">
+        <div class="container">
+            <div class="left"><?php include ("inc/footer.php") ?></div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

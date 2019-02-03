@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Station>
+  <Time Time="21:24">
+    <Temp>6.6</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:25">
+    <Temp>7</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:26">
+    <Temp>7</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:27">
+    <Temp>6.6</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:28">
+    <Temp>7</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:29">
+    <Temp>6.6</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:30">
+    <Temp>7</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>
+<Station>
+  <Time Time="21:31">
+    <Temp>7</Temp>
+    <prcp>0.11</prcp>
+  </Time>
+</Station>

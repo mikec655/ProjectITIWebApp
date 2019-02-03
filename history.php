@@ -33,7 +33,7 @@
                     $dateMin28 = $dateMin28->format('Y-m-d');
                 ?>
                 <div>
-                <h1><?php if(isset($_GET['station'])) echo "Weather Data History of Station " . $_GET['station']. ": "?></h1>
+                <h1 id='text'>Weather Data</h1>
                 <h1 id=h1id></h1>
                 <select name="country" id="country" class="iscountry">
                     <?php foreach ($countriesasia as $countries): ?>
@@ -64,6 +64,7 @@
                 $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
                 $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
                 $("#station").load("inc/stationbox.php?country=" + country);
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
                 $("#h1id").text(country);
                 });
                 $("#station").change(function() {
@@ -71,6 +72,7 @@
                     station = $("#station").val();
                 $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
                 $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
                 });
                 $("#date").change(function() {
                     country = $("#country").val();
@@ -79,7 +81,7 @@
                     action = $("#action").val();
                 $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
                 $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
-                $("#station").load("inc/stationbox.php?country=" + country);
+                $('text').attr("Weather data", "Weather Data History of Station" + station);
                 });
             </script>
                 </div>

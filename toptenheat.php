@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
     <head>
-        <title>HeroCycles</title>
+        <title>Top 10 Hottest Locations - HeroCycles Weather App</title>
+        <link rel="icon" href="img/icon.png"/>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

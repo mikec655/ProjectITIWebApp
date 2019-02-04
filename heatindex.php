@@ -46,34 +46,6 @@
                         $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
                     }, 60000);
                 </script>
-                <center>
-                    <form method="post">
-                        <input type="submit" name="downloadxml" id="downloadxml" value="Download XML"/><br/>
-                    </form>
-                    <?php
-                    if (array_key_exists('downloadxml', $_POST)) {
-                        $dom->save("public/" . $linkpath);
-                        $file = "public/" . $linkpath;
-
-                        if (file_exists($file)) {
-                            header('Content-Description: File Transfer');
-                            header('Content-Type: application/octet-stream');
-                            header('Content-Disposition: attachment; filename=' . basename($file));
-                            header('Content-Transfer-Encoding: binary');
-                            header('Expires: 0');
-                            header('Cache-Control: must-revalidate');
-                            header('Pragma: public');
-                            header('Content-Length: ' . filesize($file));
-                            ob_clean();
-                            flush();
-                            readfile($file);
-                            exit;
-                        } else {
-                            echo "An error has occurred";
-                        }
-                    }
-                    ?>
-                </center>
             </div>
         </div>
         <div class="delimiter"></div>

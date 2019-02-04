@@ -26,7 +26,9 @@
             <div class="delimiter"></div>
             <div id="content">
                 <div class="col3 grayborder">
-                    <h2>Top 10 heat</h2>
+                    <center>
+                    <h2>Top 10 Temperatures</h2>
+                    </center>
                     <br><br>
                     <p style="color: midnightblue">
                         The first page in the menu will show the top 10 warmest stations in Asia. 
@@ -36,7 +38,9 @@
                     </p>
                 </div>
                 <div class="col3 grayborder">
-                    <h2>Rainfall map</h2>
+                    <center>
+                    <h2>Rainfall Map</h2>
+                    </center>
                     <br><br>
                     <p style="color: midnightblue">
                         The second page in the menu will show an interactive map.
@@ -46,7 +50,9 @@
                     </p>
                 </div>
                 <div class="col3 grayborder">
-                    <h2>Heatindex</h2>
+                    <center>
+                    <h2>Heat Index</h2>
+                    </center>
                     <br><br>
                     <p style="color: midnightblue">
                         The third page in the menu will show a graph of the heatindex per station in India.

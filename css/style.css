@@ -87,11 +87,13 @@ hr{
 }
 
 #footer{
-    background-color: black;
+    background-color: midnightblue;
     color: white;
     float: left;
-    margin-top: 101px;
+    margin-top: 138px;
     width: 100%;
+    text-align: center;
+    bottom: 0;
 }
 
 .delimiter{

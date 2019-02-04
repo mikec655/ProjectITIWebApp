@@ -14,45 +14,47 @@
             include("inc/header.php");
             ?>
         </div>
-        </div>
-        <div>
-            <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
-        </div>
-        <div class="login">
-                <?php require("inc/loginrequire.php"); ?>
-        </div>
-        <div id="delimiter"></div>
-        <div class="container">
-            <div class="delimiter"></div>
-            <div id="content">
-                <div class="col9 grayborder" id="content_border">
-                    <center>
+    </div>
+    <div>
+        <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
+    </div>
+    <div class="login">
+        <?php require("inc/loginrequire.php"); ?>
+    </div>
+    <div id="delimiter"></div>
+    <div class="container">
+        <div class="delimiter"></div>
+        <div id="content">
+            <div class="col9 grayborder" id="content_border">
+                <center>
                     <h1>Heat Index of Station:</h1>
                     <select id="station_select"></select>
                     <div class="chart_container" id="chart_container" style="position: relative; height: auto; width: 80%"></div>
-                    </center>
-                </div>
-                <script>
-                    $(document).ready(function() {
-                        $("#station_select").load("inc/indiaselectbox.php")
-                        $("#chart_container").load("inc/heatindexgraph.php?station=420710");
-                    });
-                    $("#station_select").change(function() {
-                        var station = $("#station_select").val();
-                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
-                    })
-                    setInterval(function () {
-                        var station = $("#station_select").val();
-                        $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
-                    }, 60000);
-                </script>
+                </center>
             </div>
+            <script>
+                $(document).ready(function () {
+                    $("#station_select").load("inc/indiaselectbox.php")
+                    $("#chart_container").load("inc/heatindexgraph.php?station=420710");
+                });
+                $("#station_select").change(function () {
+                    var station = $("#station_select").val();
+                    $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+                })
+                setInterval(function () {
+                    var station = $("#station_select").val();
+                    $("#chart_container").load("inc/heatindexgraph.php?station=" + station);
+                }, 60000);
+            </script>
         </div>
-        <div class="delimiter"></div>
-        <div id="footer">
-            <div class="container">
-                <div class="left"><?php include ("inc/footer.php") ?></div>
-            </div>
+    </div>
+    <div class="delimiter"></div>
+<center>
+    <div id="footer">
+        <div class="container">
+            <?php include ("inc/footer.php") ?>
         </div>
-    </body>
+    </div>
+</center>  
+</body>
 </html>

@@ -27,7 +27,7 @@
             <div id="content">
                 <div class="col3 grayborder">
                     <center>
-                    <h2>Top 10 Temperatures</h2>
+                        <h2>Top 10 Temperatures</h2>
                     </center>
                     <br><br>
                     <p style="color: midnightblue">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col3 grayborder">
                     <center>
-                    <h2>Rainfall Map</h2>
+                        <h2>Rainfall Map</h2>
                     </center>
                     <br><br>
                     <p style="color: midnightblue">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col3 grayborder">
                     <center>
-                    <h2>Heat Index</h2>
+                        <h2>Heat Index</h2>
                     </center>
                     <br><br>
                     <p style="color: midnightblue">
@@ -64,10 +64,12 @@
             </div>
             <div class="delimiter"></div>
         </div>
+    <center>
         <div id="footer">
             <div class="container">
-                <div class="left"><?php include ("inc/footer.php")?></div>
+                <?php include ("inc/footer.php") ?>
             </div>
         </div>
-    </body>
+    </center>  
+</body>
 </html>

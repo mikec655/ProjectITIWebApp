@@ -17,7 +17,7 @@
             <img src="img/headerHC.jpg" alt="header image" class="headerimg"/>
         </div>
         <div class="login">
-                <?php require("inc/loginrequire.php"); ?>
+            <?php require("inc/loginrequire.php"); ?>
         </div>
         <div id="delimiter"></div>
         <div class="container">
@@ -28,19 +28,21 @@
                 </center>
             </div>
             <script>
-                $(document).ready(function() {
+                $(document).ready(function () {
                     $("#content").load("inc/openmap.php");
                 });
-                setInterval(function() {
+                setInterval(function () {
                     $("#content").load("inc/openmap.php");
                 }, 60000);
             </script>
             <div class="delimiter"></div>
         </div>
+    <center>
         <div id="footer">
             <div class="container">
-                <div class="left"><?php include ("inc/footer.php") ?></div>
+                <?php include ("inc/footer.php") ?>
             </div>
         </div>
-    </body>
+    </center>  
+</body>
 </html>

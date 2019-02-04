@@ -41,7 +41,7 @@
                 }, 60000);
             </script>
             <center>
-                <a id="btn" href="<?php echo "xml/Top 10 of " . date("Y-m-d"). ".xml" ?>" download="<?php echo "Top 10 of " . date("Y-m-d"). ".xml" ?>">Download</a>  
+                <a id="btn" href="<?php echo "xml/Top 10 of " . date("Y-m-d") . ".xml" ?>" download="<?php echo "Top 10 of " . date("Y-m-d") . ".xml" ?>">Download</a>  
             </center>
             <script>
                 function curday() {
@@ -65,10 +65,12 @@
         </div>
     </div>
     <div class="delimiter"></div>
+<center>
     <div id="footer">
         <div class="container">
-            <div class="left"><?php include ("inc/footer.php") ?></div>
+            <?php include ("inc/footer.php") ?>
         </div>
     </div>
+</center>    
 </body>
 </html>

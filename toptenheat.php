@@ -41,7 +41,7 @@
                 }, 60000);
             </script>
             <center>
-                <button id="btn">Download</button>  
+                <a id="btn" href="<?php echo "xml/Top 10 of " . date("Y-m-d"). ".xml" ?>" download="<?php echo "Top 10 of " . date("Y-m-d"). ".xml" ?>">Download</a>  
             </center>
             <script>
                 function curday() {
@@ -58,7 +58,7 @@
                 }
 
                 $("#btn").click(function () {
-                    window.location.href = "public/Top 10 of " + curday() + ".xml";
+                    $(".delimiter").load("inc/toptenxml.php");
                 });
             </script>
 

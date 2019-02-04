@@ -31,7 +31,7 @@ if(isset($_GET['station']) and isset($_GET['date'])){
         $dom->appendChild($root);
         }
     $dom->save($xml_file_name);
-    echo '<a href="' . $downloadpath .'" download>Click here to download</a>';   
+    echo '<a href="' . $downloadpath .'" download>Download</a>';   
     }
 }
 

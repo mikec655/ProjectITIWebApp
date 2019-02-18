@@ -38,14 +38,14 @@ if (isset($_GET['station']) and isset($_GET['date'])) {
             $wnddir = round($station['wnddir'][$i], 1);
             
             echo "<tr><th>$time</th>" .
-            "<td>$temp</td>" . 
-            "<td>$dewp</td>" .
-            "<td>$slp</td>" .
-            "<td>$stp</td>" .
-            "<td>$visib</td>" . 
-            "<td>$wdsp</td>" .
-            "<td>$prcp</td>" .
-            "<td>$sndp</td>";
+            "<td>$temp °C</td>" . 
+            "<td>$dewp °C</td>" .
+            "<td>$slp mbar</td>" .
+            "<td>$stp mbar</td>" .
+            "<td>$visib km</td>" . 
+            "<td>$wdsp km/h</td>" .
+            "<td>$prcp cm</td>" .
+            "<td>$sndp cm</td>";
             for ($j = 32; $j >= 1; $j/=2){
                 if ($frshtt / $j >= 1){
                     $frshtt -= $j;
@@ -54,8 +54,8 @@ if (isset($_GET['station']) and isset($_GET['date'])) {
                     echo "<td>NO</td>";
                 }
             }
-            echo "</td><td>$cldc</td>" .
-            "<td>$wnddir</td></tr>";
+            echo "</td><td>$cldc %</td>" .
+            "<td>$wnddir °</td></tr>";
         }
     }
     echo "</table>";

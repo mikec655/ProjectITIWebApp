@@ -22,96 +22,98 @@
         </div>
         <div class="container">
             <div id="content">
-                <div class="col9 grayborder">
-                    <center>  
-                        <?php
-                        // $timezone = "Asia/Colombo";
-                        // date_default_timezone_set($timezone);
-                        $today = date("Y-m-d");
-                        $dateMin28 = new DateTime($today);
-                        $dateMin28 = $dateMin28->sub(new DateInterval('P28D'));
-                        $dateMin28 = $dateMin28->format('Y-m-d');
-                        ?>
-                        <div>
-                            <h1 id='h1title'></h1>
-                            <h3 id='h3title'></h3>
-                            <select name="country" id="country" class="iscountry">
-                                <?php
-                                foreach ($countriesasia as $countries) {
-                                    echo "<option value='$countries'>$countries</option>";
-                                }
-                                ?>
-                            </select>
-                            <select name="station" id="station" class="iscountry">
-                                <?php foreach ($myArray as $stat): ?>
-                                    <?php echo "<option value=\"$stat\">$stat</option>"; ?>
-                                <?php endforeach; ?>
-                            </select>
-                            <input type="date" name="date" id="date"
-                                   value=<?php
-                                   if (isset($_GET['date']))
-                                       echo $_GET['date'];
-                                   else
-                                       echo $today;
-                                   ?>
-                                   min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>        
-                            <div id="cheat">
-                            </div>
-                            <table id="table">
-                            </table>
-                    </center>
-                    <script>
-                        $(document).ready(function () {
-                            console.log(window.location.search.substr(1));
-                            if (window.location.search.substr(1) == "") {
-                                country = "INDIA";
-                                station = 420710;
-                                stationName = "AMRITSAR";
-
-                            } else {
-                                var urlParams = new URLSearchParams(window.location.search);
-                                station = urlParams.getAll('station');
-                                stationName = urlParams.getAll('name');
-                                country = urlParams.getAll('country');
+                <center>  
+                    <?php
+                    // $timezone = "Asia/Colombo";
+                    // date_default_timezone_set($timezone);
+                    $today = date("Y-m-d");
+                    $dateMin28 = new DateTime($today);
+                    $dateMin28 = $dateMin28->sub(new DateInterval('P28D'));
+                    $dateMin28 = $dateMin28->format('Y-m-d');
+                    ?>
+                    <div>
+                        <h1 id='h1title'></h1>
+                        <h3 id='h3title'></h3>
+                        <select name="country" id="country" class="iscountry">
+                            <?php
+                            foreach ($countriesasia as $countries) {
+                                echo "<option value='$countries'>$countries</option>";
                             }
-                            $("#country").val(country);
-                            $("#station").load("inc/stationbox.php?country=" + country);
-                            date = $("#date").val();
-                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
-                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
-                            $("#h1title").text("Weather Data on of Station:");
-                            $("#h3title").text(stationName + ", " + country);
-                        });
-                        var updateTable = function() {
-                            country = $("#country").val();
-                            station = $("#station").val();
-                            $("#station").val($("#station").val());
-                            stationName = $("#station option:selected").text();
-                            date = $("#date").val();
-                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
-                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
-                            $("#h1title").text("Weather Data on of Station:");
-                            $("#h3title").text(stationName + ", " + country);
+                            ?>
+                        </select>
+                        <select name="station" id="station" class="iscountry">
+                            <?php foreach ($myArray as $stat): ?>
+                                <?php echo "<option value=\"$stat\">$stat</option>"; ?>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="date" name="date" id="date"
+                                value=<?php
+                                if (isset($_GET['date']))
+                                    echo $_GET['date'];
+                                else
+                                    echo $today;
+                                ?>
+                                min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>        
+                        <div id="cheat">
+                        </div>
+                        <table id="table" style="width: 100%, white-space: nowrap;">
+                        </table>
+                </center>
+                <script>
+                    $(document).ready(function () {
+                        console.log(window.location.search.substr(1));
+                        if (window.location.search.substr(1) == "") {
+                            country = "INDIA";
+                            station = 420710;
+                            stationName = "AMRITSAR";
+
+                        } else {
+                            var urlParams = new URLSearchParams(window.location.search);
+                            station = urlParams.getAll('station');
+                            stationName = urlParams.getAll('name');
+                            country = urlParams.getAll('country');
                         }
-                        var updateTableByCountry = function() {
-                            country = $("#country").val();
-                            station = $("#station option:first").val();
-                            $("#station").val($("#station option:first").val());
-                            stationName = $("#station option:selected").text();
+                        $("#country").val(country);
+                        $("#station").load("inc/stationbox.php?country=" + country, function() {
+                            $("#station").val(station);
                             date = $("#date").val();
                             $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
                             $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
                             $("#h1title").text("Weather Data on of Station:");
                             $("#h3title").text(stationName + ", " + country);
-                        }
-                        $("#country").change(function () {
-                            country = $("#country").val();
-                            $("#station").load("inc/stationbox.php?country=" + country, updateTableByCountry);
+                            console.log(station + " " + date);
                         });
-                        $("#station").change(updateTable);
-                        $("#date").change(updateTable);
-                    </script>
-                </div>
+                        
+                    });
+                    var updateTable = function() {
+                        country = $("#country").val();
+                        station = $("#station").val();
+                        $("#station").val($("#station").val());
+                        stationName = $("#station option:selected").text();
+                        date = $("#date").val();
+                        $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                        $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                        $("#h1title").text("Weather Data on of Station:");
+                        $("#h3title").text(stationName + ", " + country);
+                    }
+                    var updateTableByCountry = function() {
+                        country = $("#country").val();
+                        station = $("#station option:first").val();
+                        $("#station").val($("#station option:first").val());
+                        stationName = $("#station option:selected").text();
+                        date = $("#date").val();
+                        $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                        $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                        $("#h1title").text("Weather Data on of Station:");
+                        $("#h3title").text(stationName + ", " + country);
+                    }
+                    $("#country").change(function () {
+                        country = $("#country").val();
+                        $("#station").load("inc/stationbox.php?country=" + country, updateTableByCountry);
+                    });
+                    $("#station").change(updateTable);
+                    $("#date").change(updateTable);
+                </script>
             </div>
         </div>
     <center>

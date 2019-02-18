@@ -82,36 +82,34 @@
                             $("#h1title").text("Weather Data on of Station:");
                             $("#h3title").text(stationName + ", " + country);
                         });
-                        $("#country").ready(function () {
-
-                        })
+                        var updateTable = function() {
+                            country = $("#country").val();
+                            station = $("#station").val();
+                            $("#station").val($("#station").val());
+                            stationName = $("#station option:selected").text();
+                            date = $("#date").val();
+                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                            $("#h1title").text("Weather Data on of Station:");
+                            $("#h3title").text(stationName + ", " + country);
+                        }
+                        var updateTableByCountry = function() {
+                            country = $("#country").val();
+                            station = $("#station option:first").val();
+                            $("#station").val($("#station option:first").val());
+                            stationName = $("#station option:selected").text();
+                            date = $("#date").val();
+                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
+                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
+                            $("#h1title").text("Weather Data on of Station:");
+                            $("#h3title").text(stationName + ", " + country);
+                        }
                         $("#country").change(function () {
                             country = $("#country").val();
-                            date = $("#date").val();
-                            station = $("#station").val();
-                            action = $("#action").val();
-                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
-                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
-
-                            $('text').attr("Weather data", "Weather Data History of Station" + station);
-                            $("#h1id").text(country);
+                            $("#station").load("inc/stationbox.php?country=" + country, updateTableByCountry);
                         });
-                        $("#station").change(function () {
-                            date = $("#date").val();
-                            station = $("#station").val();
-                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
-                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date);
-                            $('text').attr("Weather data", "Weather Data History of Station" + station);
-                        });
-                        $("#date").change(function () {
-                            country = $("#country").val();
-                            date = $("#date").val();
-                            station = $("#station").val();
-                            action = $("#action").val();
-                            $("#table").load("inc/history_table.php?station=" + station + "&date=" + date);
-                            $("#cheat").load("inc/savexmlmodule.php?station=" + station + "&date=" + date + "&action=" + action);
-                            $('text').attr("Weather data", "Weather Data History of Station" + station);
-                        });
+                        $("#station").change(updateTable);
+                        $("#date").change(updateTable);
                     </script>
                 </div>
             </div>

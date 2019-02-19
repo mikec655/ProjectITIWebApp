@@ -20,8 +20,8 @@
         <div class="login">
             <?php require("inc/loginrequire.php"); ?>
         </div>
-        <div class="container">
-            <div id="content">
+        <div>
+            <div>
                 <center>  
                     <?php
                     // $timezone = "Asia/Colombo";
@@ -56,7 +56,7 @@
                                 min=<?php echo $dateMin28; ?> max=<?php echo $today; ?>>        
                         <div id="cheat">
                         </div>
-                        <table id="table" style="width: 100%, white-space: nowrap;">
+                        <table id="table" style="width: 100%, nowrap;">
                         </table>
                 </center>
                 <script>

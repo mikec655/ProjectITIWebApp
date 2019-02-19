@@ -48,8 +48,6 @@ if(isset($_GET['station']) and isset($_GET['date'])){
         $time_node->appendChild($child_node_rainfall);
         $child_node_snowfall = $dom->createElement('Snowfall', round($station['sndp'][$i], 1));
         $time_node->appendChild($child_node_snowfall);
-        $child_node_frost = $dom->createElement('Frost', round($station['frshtt'][$i], 1));
-        $time_node->appendChild($child_node_frost);
 
         $array_index = 0;
         for ($j = 32; $j >= 1; $j/=2){

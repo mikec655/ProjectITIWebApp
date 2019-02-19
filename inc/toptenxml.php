@@ -37,6 +37,6 @@ foreach ($highest_temperatures as $key => $value) {
     $dom->appendChild($root);
     $rank++;
 }
-$dom->save("../public/" . $linkpath);
+$dom->save("../xml/" . $linkpath);
 
 ?>

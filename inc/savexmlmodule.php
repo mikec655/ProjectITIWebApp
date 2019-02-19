@@ -25,8 +25,8 @@ if(isset($_GET['station']) and isset($_GET['date'])){
         $wnddir = round($station['wnddir'][$i], 1);
         $array = array("Frost", "Rain", "Snow", "Hail", "Thunderstrom", "Tornado");
         
-        $downloadpath = 'public/'. $_GET['station'] . '.xml';
-        $xml_file_name = '../public/'. $_GET['station'] . '.xml';
+        $downloadpath = 'xml/'. $_GET['station'] . '.xml';
+        $xml_file_name = '../xml/'. $_GET['station'] . '.xml';
         $root = $dom->createElement('Station');
         $time_node = $dom->createElement('Time');
         $attr_time_id = new DOMAttr('Time', date("H:i", $station['time'][$i] / 1000));

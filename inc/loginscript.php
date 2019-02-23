@@ -8,7 +8,7 @@ $password = 'userpass';
 $random1 = 'secret_key1';
 $random2 = 'secret_key2';
 
-$hash = md5($random1 . $password . $random2);
+$hash = crypt($password, $random1 . $random2);
 
 
 $users = array(
@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
 }
 
 if (isset($_POST['username'])) {
-    if ($hash == $hash && $users[$_POST['username']] !== NULL && $users[$_POST['username']] == md5($random1 . $_POST['password'] . $random2)) {
+    if ($hash == $hash && $users[$_POST['username']] !== NULL && $users[$_POST['username']] == crypt($_POST['password'],$random1 . $random2)) {
         $_SESSION['username'] = $_POST['username'];
         header('Location:  ' . $_SERVER['PHP_SELF']);
     } else {
